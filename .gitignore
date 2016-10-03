@@ -22,3 +22,5 @@
 
 
 .env
+/coverage
+COVERALLS_REPO_TOKEN=TX47zypFfCLvjiLaZ75jZKwFTFeUTwWES
