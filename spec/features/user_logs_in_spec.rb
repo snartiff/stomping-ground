@@ -11,23 +11,19 @@ feature 'sign up' do
     fill_in 'Password Confirmation', with: 'password'
     click_button 'Sign Up'
 
-    expect(page).to have_content("You're in!")
-    expect(page).to have_content("Sign Out")
+    expect(page).to have_content('You\n're in!')
+    expect(page).to have_content('Sign Out')
+  end
+  
+  scenario 'required information is not supplied' do
   end
 
-  scenario "required information is not supplied" do
-
+  scenario 'password confirmation does not match password field' do
   end
 
-  scenario "password confirmation does not match password field" do
-
+  scenario 'sees error messages if form is not filled out correctly' do
   end
 
-  scenario "sees error messages if form is not filled out correctly" do
-
-  end
-
-  scenario "user account is successfully registered if all form fields are filled out correctly" do
-
+  scenario 'user account is successfully registered if all form fields are passing' do
   end
 end
