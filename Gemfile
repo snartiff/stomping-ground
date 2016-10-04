@@ -36,7 +36,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'capybara'
-  gem 'shoulda'
+  gem 'valid_attribute'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'launchy'

@@ -20,6 +20,7 @@ feature "un-authenticated visitor sees a list of districts" do
 
     visit root_path
 
+    save_and_open_page
     click_link "Back Bay"
 
     expect(page).to have_content back_bay.name
