@@ -30,7 +30,6 @@ require 'factory_girl_rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
@@ -58,7 +57,7 @@ RSpec.configure do |config|
     # with the specs, so continue to use transaction strategy for speed.
     driver_shares_db_connection_with_specs = Capybara.current_driver == :rack_test
 
-    if !driver_shares_db_connection_with_specs
+    unless driver_shares_db_connection_with_specs
       # Driver is probably for an external browser with an app
       # under test that does *not* share a database connection with the
       # specs, so use truncation strategy.
