@@ -1,0 +1,7 @@
+<h1>New District Form</h1>
+
+<%= form_for(@district) do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+  <%= f.submit "Add District" %>
+<% end %>

@@ -173,6 +173,9 @@ RaiseArgs:
 RegexpLiteral:
   Enabled: false
 
+ruby:
+  config_file: .rubocop.yml
+
 SelfAssignment:
   Enabled: false
 
