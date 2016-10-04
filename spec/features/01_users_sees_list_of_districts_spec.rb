@@ -7,8 +7,8 @@ feature "un-authenticated visitor sees a list of districts" do
 
     visit districts_path
 
-    expect(page).to have_content "Back Bay"
-    expect(page).to have_link "Cambridge"
+    expect(page).to have_content back_bay.name
+    expect(page).to have_link cambridge.name
 
     click_link "Add New District"
 
