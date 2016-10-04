@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+require 'rails_helper'
 feature 'sign up' do
   scenario 'specifies valid and required information' do
     visit root_path

@@ -9,14 +9,7 @@
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <li><%= link_to "Sign Up", new_user_registration_path %></li>
-        <li><%= link_to "Sign Out", '#' %></li>
-      </ul>
-    </nav>
-    <p class="notice"> <%= notice %></p>
-    <p class="alert"> <%= alert %></p>
+    <%= render 'layouts/navbar' %>
 
     <%= yield %>
   </body>

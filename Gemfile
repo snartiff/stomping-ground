@@ -36,6 +36,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'capybara'
+  gem 'shoulda'
   gem 'database_cleaner'
   gem 'launchy'
 end
