@@ -17,7 +17,7 @@ class DistrictsController < ApplicationController
       flash[:success] = "District added successfully"
       redirect_to districts_path
     else
-      @disctrict.errors.any?
+      @district.errors.any?
       flash[:notice] = @district.errors.full_messages.join(", ")
       render :new
     end
