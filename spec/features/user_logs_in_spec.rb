@@ -14,16 +14,4 @@ feature 'sign up' do
     expect(page).to have_content('You\'re in!')
     expect(page).to have_content('Sign Out')
   end
-
-  scenario 'required information is not supplied' do
-  end
-
-  scenario 'password confirmation does not match password field' do
-  end
-
-  scenario 'sees error messages if form is not filled out correctly' do
-  end
-
-  scenario 'user account is successfully registered if all form fields are passing' do
-  end
 end

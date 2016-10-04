@@ -37,6 +37,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'capybara'
   gem 'shoulda'
+  gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'launchy'
 end

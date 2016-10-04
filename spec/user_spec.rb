@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'rails_helper'
 describe User do
   it { should have_valid(:first_name).when('Bob', 'Amanda') }
   it { should_not have_valid(:first_name).when(nil, '') }
