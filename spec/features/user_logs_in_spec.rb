@@ -11,10 +11,10 @@ feature 'sign up' do
     fill_in 'Password Confirmation', with: 'password'
     click_button 'Sign Up'
 
-    expect(page).to have_content('You\n're in!')
+    expect(page).to have_content('You\'re in!')
     expect(page).to have_content('Sign Out')
   end
-  
+
   scenario 'required information is not supplied' do
   end
 

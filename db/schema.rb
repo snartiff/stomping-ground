@@ -35,5 +35,4 @@ ActiveRecord::Schema.define(version: 20161004135947) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
-
 end
