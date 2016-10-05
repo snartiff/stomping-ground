@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
   def index
   end
 
@@ -14,10 +15,11 @@ class ReviewsController < ApplicationController
     @district = District.find(params[:district_id])
     @review = Review.new(review_params)
     @review.district = @district
+    @review.user_id = current_user.id
 
     if @review.save
       flash[:success] = "District added successfully"
-      redirect_to districts_path(@district)
+      redirect_to @district
     else
       @review.errors.any?
       flash[:notice] = @review.errors.full_messages.join(", ")
