@@ -36,6 +36,5 @@ feature "only registered user can add district" do
     click_button "Add District"
     expect(page).to have_content "Name can't be blank"
     expect(page).to have_content "Description can't be blank"
-
   end
 end

@@ -1,8 +1,6 @@
 class DistrictsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
-  before_action :authorize_user, except: [:index, :show]
-
   def index
     @districts = District.all
   end
@@ -41,12 +39,4 @@ class DistrictsController < ApplicationController
   def district_params
     params.require(:district).permit(:name, :description)
   end
-
-  def authorize_user
-
-    if !user_signed_in?
-      raise ActionController::RoutingError.new('Not Found')
-    end
-  end
-
 end
