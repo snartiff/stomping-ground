@@ -10,13 +10,13 @@
 
   <div class="field">
     <%= f.label :first_name, 'First Name' %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+    <%= f.text_field :first_name %>
 
   </div>
 
   <div class="field">
     <%= f.label :last_name, 'Last Name' %><br />
-    <%= f.text_field :last_name, autofocus: true %>
+    <%= f.text_field :last_name%>
   </div>
 
   <div class="field">
@@ -35,6 +35,12 @@
   <div class="field">
     <%= f.label :password_confirmation, 'Password Confirmation' %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :avatar do %>
+      <%= f.file_field :avatar %>
+    <% end %>
   </div>
 
   <div class="actions">
