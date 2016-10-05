@@ -119,7 +119,7 @@ LineEndConcatenation:
   Enabled: false
 
 LineLength:
-  Max: 80
+  Max: 180
 
 MethodLength:
   Enabled: false
@@ -276,6 +276,15 @@ Style/EmptyLinesAroundBlockBody:
 
 Style/UnneededPercentQ:
   Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
 
 Metrics/AbcSize:
   Enabled: false
