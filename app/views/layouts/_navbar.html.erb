@@ -2,6 +2,7 @@
   <ul>
     <% if user_signed_in? %>
       <li class="signed-in">Signed in as <span class="username"><%= current_user[:username] %></span></li>
+      <li><%= link_to 'My Account', user_path(current_user) %>
       <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
     <% else %>
     <li><%= link_to 'Sign In', new_user_session_path %></li>
