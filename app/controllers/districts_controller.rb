@@ -6,6 +6,12 @@ class DistrictsController < ApplicationController
   def show
     @district = District.find(params[:id])
     @reviews = @district.reviews
+    @average_rating = 0.0
+    @reviews.each do |r|
+      @average_rating += r.rating
+    end
+    @average_rating = @average_rating.fdiv(@reviews.length)
+
     @review = Review.new
   end
 

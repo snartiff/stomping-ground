@@ -1,6 +1,6 @@
 <h1><%= @district.name %></h1>
 <p><%= @district.description %></p>
-<p>Average Rating: </p>
+<p>Average Rating: <%= @average_rating %></p>
 <ul>
   <% @reviews.each do |r| %>
     <li>
