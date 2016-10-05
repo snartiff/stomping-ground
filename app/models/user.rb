@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
+  has_many :districts
+  has_many :reviews
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
