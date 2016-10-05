@@ -10,15 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004143150) do
+ActiveRecord::Schema.define(version: 20161005150608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "districts", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id",     null: false
+    t.text     "description", null: false
+    t.text     "photo_url"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "title",                    null: false
+    t.text     "body",                     null: false
+    t.integer  "rating",                   null: false
+    t.integer  "district_id",              null: false
+    t.integer  "user_id",                  null: false
+    t.string   "tags",        default: [],              array: true
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +55,5 @@ ActiveRecord::Schema.define(version: 20161004143150) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
+
 end

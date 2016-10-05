@@ -6,8 +6,8 @@ h1,
 h2,
 h3,
 h4 {
-  text-transform: lowercase;
-  font-variant: small-caps;
+  text-transform: uppercase;
+  font-size: 1.7em;
 }
 ul {
   list-style: none;
