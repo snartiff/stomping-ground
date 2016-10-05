@@ -1,1 +1,18 @@
 <h1><%= @district.name %></h1>
+<p><%= @district.description %></p>
+<p>Average Rating: </p>
+<ul>
+  <% @reviews.each do |r| %>
+    <li>
+      Title: <%= r.title %><br />
+      Body: <%= r.body %><br />
+      Rating: <%= r.rating %><br />
+      Tags: <% r.tags.each do |tag| %>
+             <%= tag %><br />
+            <% end %>
+      </li>
+  <% end %>
+</ul>
+
+<%= link_to 'New Review', new_district_review_path(@district) %>
+<%= link_to 'Back', districts_path %>

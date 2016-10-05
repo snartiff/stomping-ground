@@ -5,6 +5,8 @@ class DistrictsController < ApplicationController
 
   def show
     @district = District.find(params[:id])
+    @reviews = @district.reviews
+    @review = Review.new
   end
 
   def new

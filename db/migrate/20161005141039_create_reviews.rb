@@ -6,7 +6,7 @@ class CreateReviews < ActiveRecord::Migration[5.0]
       t.integer :rating, null: false
       t.integer :district_id, null: false
       t.integer :user_id, null: false
-      t.string :
+      t.string :tags, array: true, default: []
 
       t.timestamps
     end
