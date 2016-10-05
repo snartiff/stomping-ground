@@ -1,0 +1,76 @@
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  }
+h1,
+h2,
+h3,
+h4 {
+  text-transform: lowercase;
+  font-variant: small-caps;
+}
+ul {
+  list-style: none;
+}
+#navbar ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 15px;
+}
+#navbar ul li {
+  padding: 0 15px;
+  color: #329ea2;
+    }
+li.signed-in {
+    text-transform: lowercase;
+    font-variant: small-caps;
+    font-size: 1.4em;
+}
+span.username {
+  color: #00868b;
+}
+
+p.notice {
+    color: #00868b;
+    text-align: center;
+  }
+p.alert {
+  color: red;
+  text-align: center;
+}
+.form-header h2 {
+  max-width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  color: #00868b;
+  padding: 17px 0;
+  border-bottom: 2px solid #ccc;
+}
+form {
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+#error_explanation {
+    font-size: .8em;
+    text-align: center;
+    padding: 10px 0;
+  }
+#error_explanation h2 {
+  font-size: 2.2em;
+  color: red;
+}
+label {
+    color: #329ea2;
+  }
+em {
+  color: #329ea2;
+  font-size: .8em;
+}
+.actions {
+  padding-bottom: 20px;
+}
+.bottom-link {
+  padding-top: 7px;
+}

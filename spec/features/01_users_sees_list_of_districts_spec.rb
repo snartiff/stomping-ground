@@ -19,9 +19,8 @@ feature "un-authenticated visitor sees a list of districts" do
     back_bay = District.create(name: "Back Bay")
 
     visit root_path
-
     click_link "Back Bay"
-
+    
     expect(page).to have_content back_bay.name
   end
 end
