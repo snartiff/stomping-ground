@@ -77,4 +77,5 @@ em {
 .avatar {
   height: 40px;
   margin-left: -25px;
+  border: 2px solid black;
 }
