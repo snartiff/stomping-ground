@@ -1,0 +1,26 @@
+<h2>Write a New Review</h2>
+
+<%= form_for [@district, @review] do |f| %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, required: true, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_field :body, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rating %><br />
+    <%= f.number_field :rating, min: 1, max: 5, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+
+<% end %>
+
+<%= link_to 'Back', districts_path(@district) %>
