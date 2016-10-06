@@ -10,7 +10,7 @@ feature 'viewing profile show page' do
                        password: "password",
                        password_confirmation: "password",
                        role: 'member'
-                       )
+                      )
     visit root_path
 
     click_link 'Sign In'

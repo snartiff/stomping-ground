@@ -10,10 +10,11 @@ class UsersController < ApplicationController
   end
 
   protected
+
   def authorize_user
     if !user_signed_in? || !current_user.admin?
-     redirect_to root_path
-     flash[:notice] = "Nice try but you do not have access to this page"
+      redirect_to root_path
+      flash[:notice] = "Nice try but you do not have access to this page"
     end
   end
 end
