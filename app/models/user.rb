@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, length: { minimum: 4,
        maximum: 16 }
+
+  def admin?
+    role == 'admin'
+  end
 end

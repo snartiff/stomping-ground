@@ -1,6 +1,12 @@
 <nav id="navbar">
   <ul>
     <% if user_signed_in? %>
+      <% if current_user.admin? %>
+        <li class="admin-links">
+          <%= link_to 'Admin Controls', users_path %>
+        </li>
+      <% end %>
+
       <li class="signed-in">Signed in as <span class="username"><%= current_user[:username] %></span></li>
       <li><%= link_to 'My Account', user_path(current_user) %>
       <li>
