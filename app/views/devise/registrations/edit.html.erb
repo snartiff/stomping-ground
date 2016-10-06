@@ -5,17 +5,17 @@
 
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.email_field :username %>
+    <%= f.text_field :username %>
   </div>
 
   <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.email_field :first_name, autofocus: true %>
+    <%= f.text_field :first_name, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label :last_name %><br />
-    <%= f.email_field :last_name%>
+    <%= f.text_field :last_name%>
   </div>
 
   <div class="field">
@@ -60,7 +60,7 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>CANCEL MY ACCOUNT</h3>
 
 <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
