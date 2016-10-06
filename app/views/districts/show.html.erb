@@ -13,8 +13,11 @@
       Title: <%= r.title %><br />
       Body: <%= r.body %><br />
       Rating: <%= r.rating %><br />
-      Reviewer: <%= r.user.username %>
-      </li>
+      Reviewer: <%= r.user.username %><br />
+    </li>
+    <p><%= r.votes.count %> votes</h3></p>
+    <%= link_to "Vote Up", vote_up_path(r), :remote => true %>
+    <%= link_to "Vote Down", vote_down_path(r), :remote => true %><br />
   <% end %>
 </ul>
 
