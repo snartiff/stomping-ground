@@ -37,6 +37,6 @@ class DistrictsController < ApplicationController
   protected
 
   def district_params
-    params.require(:district).permit(:name, :description)
+    params.require(:district).permit(:name, :description, :avatar)
   end
 end
