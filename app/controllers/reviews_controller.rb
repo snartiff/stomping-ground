@@ -25,7 +25,20 @@ class ReviewsController < ApplicationController
       flash[:notice] = @review.errors.full_messages.join(", ")
       render :new
     end
+  end
 
+  def upvote
+    @district = District.find(params[:district_id])
+    @review = Review.find(params[:id])
+    @review.upvote_from current_user
+    redirect_to @district
+  end
+
+  def downvote
+    @district = District.find(params[:district_id])
+    @review = Review.find(params[:id])
+    @review.downvote_from current_user
+    redirect_to @district
   end
 
   protected

@@ -8,7 +8,20 @@
       Title: <%= r.title %><br />
       Body: <%= r.body %><br />
       Rating: <%= r.rating %><br />
-      Reviewer: <%= r.user.username %>
+      Reviewer: <%= r.user.username %><br />
+      <%= link_to like_district_review_path(r), class: "like", method: :put do %>
+        <button type="button" class="btn btn-info" aria-label="Left Align">
+          <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+          <span class="badge"><%= r.get_upvotes.size %></span>
+        </button>
+      <% end %>
+
+      <%= link_to unlike_district_review_path(r), class: "like", method: :put do %>
+        <button type="button" class="btn btn-info" aria-label="Left Align">
+          <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+          <span class="badge"><%= r.get_downvotes.size %></span>
+        </button>
+      <% end %>
       </li>
   <% end %>
 </ul>

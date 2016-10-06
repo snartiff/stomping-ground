@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   root "districts#index"
 
   resources :districts do
-    resources :reviews
+    resources :reviews do
+      member do
+        put "like" => "reviews#upvote"
+        put "unlike" => "reviews#downvote"
+      end
+    end
   end
 end
