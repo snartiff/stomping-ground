@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :district do
-    name 'Back Bay'
+    sequence(:name) { |n| "District #{n}" }
     description 'A wonderful location in the heart of Greater Boston.'
     user
   end
