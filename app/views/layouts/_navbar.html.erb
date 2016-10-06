@@ -16,7 +16,6 @@
           <%= image_tag("http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-ponsy-deer.png", class: "avatar") %>
         <% end %>
       </li>
-
       <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
     <% else %>
     <li><%= link_to 'Sign In', new_user_session_path %></li>
