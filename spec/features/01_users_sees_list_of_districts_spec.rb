@@ -19,7 +19,7 @@ feature "un-authenticated visitor sees a list of districts" do
     back_bay = FactoryGirl.create(:district)
 
     visit root_path
-    click_link "Back Bay"
+    click_link back_bay.name
 
     expect(page).to have_content back_bay.name
     expect(page).to have_content back_bay.description
