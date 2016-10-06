@@ -25,7 +25,13 @@ class ReviewsController < ApplicationController
       flash[:notice] = @review.errors.full_messages.join(", ")
       render :new
     end
+  end
 
+  def destroy
+    @review = Review.find(params[:district_id])
+    @review.destroy
+    flash[:notice] = 'Review deleted'
+    redirect_to district_path
   end
 
   protected

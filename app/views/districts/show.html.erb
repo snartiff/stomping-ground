@@ -1,17 +1,26 @@
 <h1><%= @district.name %></h1>
 <p><%= @district.description %></p>
 <p>Average Rating: <%= @average_rating %></p>
+<% unless @district.user.nil? %>
 <p>Created by: <%= @district.user.username %>
+<% end %>
+
 <ul>
+
+  <h4>REVIEWS</h4>
   <% @reviews.each do |r| %>
+
     <li>
       Title: <%= r.title %><br />
       Body: <%= r.body %><br />
       Rating: <%= r.rating %><br />
+      <% unless r.user.nil? %>
       Reviewer: <%= r.user.username %>
+      <% end %>
       </li>
   <% end %>
+
 </ul>
 
-<%= link_to 'New Review', new_district_review_path(@district) %>
+<%= link_to 'New Review', new_district_review_path(@district) %><br />
 <%= link_to 'Back', districts_path %>
