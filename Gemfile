@@ -59,3 +59,5 @@ group :test do
   gem 'rspec-rails'
   gem 'coveralls', require: false
 end
+
+ruby '2.3.1'
