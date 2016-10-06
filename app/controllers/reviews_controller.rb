@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
 
     if @review.save
-      flash[:success] = "District added successfully"
+      flash[:success] = "Review added successfully"
       redirect_to @district
     else
       @review.errors.any?
