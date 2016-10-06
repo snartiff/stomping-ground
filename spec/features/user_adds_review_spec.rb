@@ -25,7 +25,7 @@ feature 'Authenticated user adds reviews' do
     expect(page).to have_content 'Terrible place to grow up'
     expect(page).to have_content 'Look at how I turned up'
     expect(page).to have_content 1
-    expect(page).to have_content user.username
+    expect(page).to have_content "Reviewer: #{user.username}"
   end
 
   scenario 'user does not fill in required information for a new review' do
