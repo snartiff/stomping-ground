@@ -2,15 +2,7 @@ require 'spec_helper'
 require 'rails_helper'
 
 feature 'admin views users' do
-  let!(:admin) { User.create(username: "Jewls",
-                             first_name: "Julie",
-                             last_name: "Grace",
-                             email: "hello@test.com",
-                             password: "password",
-                             password_confirmation: "password",
-                             role: "admin"
-                            )
-                }
+  let!(:admin) { FactoryGirl.create(:user, role: 'admin') }
   let!(:users) { FactoryGirl.create_list(:user, 5) }
 
   scenario 'an admin views link to admin controls' do

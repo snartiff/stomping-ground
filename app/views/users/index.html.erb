@@ -2,6 +2,10 @@
 
 <ul>
   <% @users.each do |user| %>
-    <li><%= user.username %><li>
+    <li><%= user.username %></li>
+      <% if current_user.admin? %>
+        <li class="delete"><%= button_to 'Delete', user, method: :delete %></li>
+      <% end %>
   <% end %>
 </ul>
+<p><%= link_to 'Back to Districts', root_path %></p>
