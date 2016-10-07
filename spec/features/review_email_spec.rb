@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'email sent for added review' do
   scenario 'email sent when authenicated user adds new review successfully' do
-        ActionMailer::Base.deliveries.clear
     user = FactoryGirl.create(:user)
     district = FactoryGirl.create(:district)
 

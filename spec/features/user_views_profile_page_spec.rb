@@ -2,15 +2,9 @@ require 'spec_helper'
 require 'rails_helper'
 
 feature 'viewing profile show page' do
+  let!(:user) { FactoryGirl.create(:user) }
+
   scenario 'current user views own profile account page' do
-    user = User.create(username: "Jewls",
-                       first_name: "Julie",
-                       last_name: "Grace",
-                       email: "hello@test.com",
-                       password: "password",
-                       password_confirmation: "password",
-                       role: 'member'
-                      )
     visit root_path
 
     click_link 'Sign In'
