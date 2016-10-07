@@ -553,7 +553,7 @@ Style/HashSyntax:
   PreferHashRocketsForNonAlnumEndingSymbols: false
 
 Style/IfUnlessModifier:
-  MaxLineLength: 80
+  MaxLineLength: 150
 
 Style/IndentationConsistency:
   # The difference between `rails` and `normal` is that the `rails` style
@@ -1072,7 +1072,7 @@ Style/VariableNumber:
     - non_integer
 
 Style/WhileUntilModifier:
-  MaxLineLength: 80
+  MaxLineLength: 150
 
 # WordArray enforces how array literals of word-like strings should be expressed.
 Style/WordArray:
