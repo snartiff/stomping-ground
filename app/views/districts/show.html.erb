@@ -15,7 +15,12 @@
       Rating: <%= r.rating %><br />
       Reviewer: <%= r.user.username %><br />
     </li>
-    <p><%= r.votes.count %> votes</h3></p>
+      <% up_votes = r.votes.where(:vote => true) %>
+      <div id="upvote"><%= up_votes.count %></div> Upvotes
+      <% down_votes = r.votes.where(:vote => false) %>
+      <%= down_votes.count %> Downvotes
+
+
     <%= link_to "Vote Up", vote_up_path(r), :remote => true %>
     <%= link_to "Vote Down", vote_down_path(r), :remote => true %><br />
   <% end %>
