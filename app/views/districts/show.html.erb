@@ -5,11 +5,7 @@
     <% end %>
 <h1><%= @district.name %></h1>
 <p><%= @district.description %></p>
-<% if @average_rating.class == Integer %>
-  <p>Average Rating: <%= @average_rating %></p>
-<% else %>
-  <p>Average Rating: 0 </p>
-<% end %>
+<p>Average Rating: <%= @average_rating %></p>
 
 <% unless @district.user.nil? %>
 <p>Created by: <%= @district.user.username %>
@@ -33,7 +29,6 @@
       <% end %>
       </li>
   <% end %>
-
 </ul>
 
 <%= link_to 'New Review', new_district_review_path(@district) %><br />
