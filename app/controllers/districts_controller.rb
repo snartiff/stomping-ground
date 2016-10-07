@@ -3,11 +3,17 @@ class DistrictsController < ApplicationController
 
   def index
     @districts = District.all
+    if params[:search]
+      @districts = District.search(params[:search])
+    end
   end
 
   def show
     @district = District.find(params[:id])
     @reviews = @district.reviews
+    if params[:search]
+      @reviews = Review.search(params[:search])
+    end
     @average_rating = 0.0
     @reviews.each do |r|
       @average_rating += r.rating
