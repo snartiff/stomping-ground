@@ -25,6 +25,8 @@
 
       <% if current_user.id == r.user_id %>
         <li class="delete"><%= button_to 'Delete', district_review_path(@district, r), method: :delete %></li>
+
+      <li class="update"><%= button_to 'Update', district_review_path(@district, r), method: :patch %></li>
       <% end %>
     <% end %>
 
