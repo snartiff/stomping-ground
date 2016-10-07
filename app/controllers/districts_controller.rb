@@ -19,7 +19,9 @@ class DistrictsController < ApplicationController
       @average_rating += r.rating
     end
     @average_rating = @average_rating.fdiv(@reviews.length)
-
+    if @average_rating.nan?
+      @average_rating = 0
+    end
     @review = Review.new
   end
 
@@ -40,9 +42,16 @@ class DistrictsController < ApplicationController
     end
   end
 
+  def destroy
+    @district = District.find(params[:id])
+    @district.destroy
+    flash[:notice] = 'District deleted'
+    redirect_to districts_path
+  end
+
   protected
 
   def district_params
-    params.require(:district).permit(:name, :description)
+    params.require(:district).permit(:name, :description, :avatar)
   end
 end
