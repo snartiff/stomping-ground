@@ -2,17 +2,9 @@ require 'spec_helper'
 require 'rails_helper'
 
 feature 'admin deletes anything' do
-  let!(:admin) { User.create(username: "Jewls",
-                             first_name: "Julie",
-                             last_name: "Grace",
-                             email: "hello@test.com",
-                             password: "password",
-                             password_confirmation: "password",
-                             role: "admin"
-                            )
-                }
+  let!(:admin) { FactoryGirl.create(:user, role: 'admin') }
   let!(:users) { FactoryGirl.create_list(:user, 5) }
-  let!(:districts) {FactoryGirl.create_list(:district, 5) }
+  let!(:districts) { FactoryGirl.create_list(:district, 5) }
   let!(:review) { Review.create(title: 'Review me!', body: 'So amazing tests', rating: 5, district_id: districts.first.id, user_id: users.first.id) }
 
   scenario 'an admin deletes users when desired' do
