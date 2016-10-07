@@ -18,6 +18,7 @@
 <h4>REVIEWS</h4>
 <ul>
   <% @reviews.each do |r| %>
+
   <% if current_user.admin? %>
     <li class="delete"><%= button_to 'Delete', district_review_path(@district, r), method: :delete %></li>
     <% end %>
