@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
 
     if @review.save
+      ReviewMailer.new_review(@review).deliver_now
       flash[:success] = "Review added successfully"
       redirect_to @district
     else
@@ -25,7 +26,6 @@ class ReviewsController < ApplicationController
       flash[:notice] = @review.errors.full_messages.join(", ")
       render :new
     end
-
   end
 
   protected
