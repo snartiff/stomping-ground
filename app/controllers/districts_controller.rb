@@ -13,7 +13,9 @@ class DistrictsController < ApplicationController
       @average_rating += r.rating
     end
     @average_rating = @average_rating.fdiv(@reviews.length)
-
+    if @average_rating.nan?
+      @average_rating = 0
+    end
     @review = Review.new
   end
 
