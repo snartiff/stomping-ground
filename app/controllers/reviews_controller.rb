@@ -28,6 +28,14 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @district = District.find(params[:district_id])
+    @review = @district.reviews.find(params[:id])
+    @review.destroy
+    flash[:notice] = 'Review deleted'
+    redirect_to district_path(@district)
+  end
+
   protected
 
   def review_params

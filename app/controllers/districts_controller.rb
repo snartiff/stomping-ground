@@ -34,6 +34,13 @@ class DistrictsController < ApplicationController
     end
   end
 
+  def destroy
+    @district = District.find(params[:id])
+    @district.destroy
+    flash[:notice] = 'District deleted'
+    redirect_to districts_path
+  end
+
   protected
 
   def district_params

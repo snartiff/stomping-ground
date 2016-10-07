@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   resources :districts do
     resources :reviews
   end
+
+  namespace :admin do
+    resources :users
+  end
 end

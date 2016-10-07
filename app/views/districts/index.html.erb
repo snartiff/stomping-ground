@@ -2,6 +2,11 @@
   <h1>Districts Homepage</h1>
   <ul>
     <% @districts.each do |district| %>
+    <% unless current_user.nil? %>
+    <% if current_user.admin? %>
+      <li class="delete"><%= button_to 'Delete', district, method: :delete %></li>
+    <% end %>
+    <% end %>
       <li><%= link_to("#{district.name}", district) %></li>
     <% end %>
   </ul>
