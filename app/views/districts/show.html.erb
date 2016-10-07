@@ -16,13 +16,16 @@
       Reviewer: <%= r.user.username %><br />
     </li>
       <% up_votes = r.votes.where(:vote => true) %>
-      <div id="upvote"><%= up_votes.count %></div> Upvotes
       <% down_votes = r.votes.where(:vote => false) %>
-      <%= down_votes.count %> Downvotes
+      <div id="upvote-count">
+        <%= up_votes.count %> Upvotes
+      </div>
+      <div id="downvote-count">
+        <%= down_votes.count %> Downvotes
+      </div>
 
-
-    <%= link_to "Vote Up", vote_up_path(r), :remote => true %>
-    <%= link_to "Vote Down", vote_down_path(r), :remote => true %><br />
+    <%= link_to "Vote Up", api_vote_up_path(r), :remote => true, id: "upvote" %>
+    <%= link_to "Vote Down", api_vote_down_path(r), :remote => true, id: "downvote" %><br />
   <% end %>
 </ul>
 

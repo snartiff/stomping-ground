@@ -13,7 +13,6 @@ class VotesController < ApplicationController
     else
       @review.votes.create(:user_id => current_user.id, :review_id => @review.id, :vote => true)
     end
-
   end
 
   def vote_down
@@ -30,5 +29,4 @@ class VotesController < ApplicationController
       @review.votes.create(:user_id => current_user.id, :review_id => @review.id, :vote => false)
     end
   end
-
 end
