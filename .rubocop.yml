@@ -553,7 +553,7 @@ Style/HashSyntax:
   PreferHashRocketsForNonAlnumEndingSymbols: false
 
 Style/IfUnlessModifier:
-  MaxLineLength: 80
+  MaxLineLength: 150
 
 Style/IndentationConsistency:
   # The difference between `rails` and `normal` is that the `rails` style
@@ -1072,7 +1072,7 @@ Style/VariableNumber:
     - non_integer
 
 Style/WhileUntilModifier:
-  MaxLineLength: 80
+  MaxLineLength: 150
 
 # WordArray enforces how array literals of word-like strings should be expressed.
 Style/WordArray:
@@ -1112,7 +1112,7 @@ Metrics/CyclomaticComplexity:
   Max: 6
 
 Metrics/LineLength:
-  Max: 80
+  Max: 150
   # To make it possible to copy or click on URIs in the code, we allow lines
   # containing a URI to be longer than Max.
   AllowHeredoc: true
