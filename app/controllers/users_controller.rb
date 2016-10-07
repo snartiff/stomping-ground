@@ -9,6 +9,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = 'User deleted'
+    redirect_to users_path
+  end
+
   protected
 
   def authorize_user
