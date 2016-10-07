@@ -1,13 +1,13 @@
+
 <% if @district.avatar? %>
   <%=  image_tag(@district.avatar.url, class: "district_pic") %>
   <% else %>
     <%= image_tag("https://s-media-cache-ak0.pinimg.com/originals/56/7d/fa/567dfadfa0238e42e6f59efa9c01f504.jpg", class: 'default') %>
     <% end %>
 <h1><%= @district.name %></h1>
-<% if current_user.id == @district.user_id %>
-  <li class="delete"><%= button_to 'Delete', @district, method: :delete %></li>
+<% if current_user && (current_user.id == @district.user_id) %>
+  <li class="delete"><%= button_to 'Delete District', @district, method: :delete %></li>
 <% end %>
-
 <p><%= @district.description %></p>
 <p>Average Rating: <%= @average_rating %></p>
 
