@@ -11,29 +11,15 @@ The web app is build with Ruby on Rails, AJAX, and Foundations CSS.
 
 We integrated the user log-in through Devise and the user avatar through CarrierWave.
 
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+Ruby version 2.2.3
 
 * System dependencies
 
 * Configuration
+Run the following (after git cloning):
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-
-
-#Simply run gem install mailcatcher then mailcatcher to get started.
+bundle install
+rake db:create
+rake db:migrate
+rails s
