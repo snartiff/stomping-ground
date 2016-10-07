@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'sendgrid-ruby'
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem 'mini_magick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -59,3 +60,5 @@ group :test do
   gem 'rspec-rails'
   gem 'coveralls', require: false
 end
+
+ruby '2.3.1'
