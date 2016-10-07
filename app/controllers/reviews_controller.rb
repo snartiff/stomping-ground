@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
 
     if @review.save
+      ReviewMailer.new_review(@review).deliver_now
       flash[:success] = "Review added successfully"
       redirect_to @district
     else

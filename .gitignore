@@ -24,3 +24,4 @@
 .env
 /coverage
 /public/uploads
+.sendgrid
