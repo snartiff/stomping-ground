@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
     if @review.save
       ReviewMailer.new_review(@review).deliver
       flash[:success] = "Review added successfully"
-      redirect_to @district
+      redirect_to district_path(@district)
     else
       @review.errors.any?
       flash[:notice] = @review.errors.full_messages.join(", ")
