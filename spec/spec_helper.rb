@@ -2,7 +2,6 @@ require 'coveralls'
 Coveralls.wear!('rails')
 
 RSpec.configure do |config|
-
   config.before :each do
     ActionMailer::Base.deliveries.clear
   end
