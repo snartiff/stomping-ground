@@ -176,3 +176,10 @@ img.district_pic {
   font-size: 20px;
   color: #c25955;
 }
+.show-search {
+  padding-top: 250px;
+  float: right;
+}
+#new-district {
+  padding-top: 500px;
+}
