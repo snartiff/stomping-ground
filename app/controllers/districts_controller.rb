@@ -1,5 +1,6 @@
 class DistrictsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  respond_to :html, :js
 
   def index
     @districts = District.all
