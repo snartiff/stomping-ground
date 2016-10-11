@@ -18,7 +18,7 @@ class DistrictsController < ApplicationController
     @reviews.each do |r|
       @average_rating += r.rating
     end
-    @average_rating = @average_rating.fdiv(@reviews.length)
+    @average_rating = @average_rating.fdiv(@reviews.length).round(2)
     if @average_rating.nan?
       @average_rating = 0
     end

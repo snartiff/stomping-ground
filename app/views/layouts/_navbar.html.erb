@@ -1,25 +1,33 @@
 <nav id="navbar">
-  <ul>
-    <% if user_signed_in? %>
-      <% if current_user.admin? %>
-        <li class="admin-links">
-          <%= link_to 'Admin Controls', users_path %>
-        </li>
-      <% end %>
 
-      <li class="signed-in">Signed in as <span class="username"><%= current_user[:username] %></span></li>
-      <li><%= link_to 'My Account', user_path(current_user) %>
-      <li>
-        <% if current_user.avatar? %>
-          <%=  image_tag(current_user.avatar.url, class: "avatar") %></div>
+    <div class="logo">
+      <%= image_tag("http://images.clipartpanda.com/wrongdoing-clipart-left-foot-hollow-md.png") %>
+      <h1 class="header">Stomping Ground</h1>
+    </div>
+
+    <div class="links">
+      <ul>
+        <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <li class="admin-links">
+              <%= link_to 'Admin Controls', users_path %>
+            </li>
+          <% end %>
+
+          <li class="signed-in">Signed in as <span class="username"><%= current_user[:username] %></span></li>
+          <li><%= link_to 'My Account', user_path(current_user) %></li>
+          <li>
+            <% if current_user.avatar? %>
+              <%=  image_tag(current_user.avatar.url, class: "avatar") %>
+            <% else %>
+              <%= image_tag("http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-ponsy-deer.png", class: "avatar") %>
+            <% end %>
+          </li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <%= image_tag("http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-ponsy-deer.png", class: "avatar") %>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
         <% end %>
-      </li>
-      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-    <% else %>
-    <li><%= link_to 'Sign In', new_user_session_path %></li>
-    <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-    <% end %>
-  </ul>
+      </ul>
+    </div>
 </nav>
