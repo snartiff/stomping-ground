@@ -1,4 +1,10 @@
 <body>
+  <div class="search">
+    <%= form_tag(districts_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+</div>
   <h1>Districts Homepage</h1>
   <ul>
     <% @districts.each do |district| %>
