@@ -3,7 +3,7 @@ class ReviewMailer < ApplicationMailer
     @review = review
 
     mail(
-      to: review.district.user.email,
+      to: @review.district.user.email,
       subject: "New Review for #{review.district.name}"
     )
   end
