@@ -5,11 +5,7 @@ feature 'email sent for added review' do
     user = FactoryGirl.create(:user)
     district = FactoryGirl.create(:district)
 
-    visit root_path
-    click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
+    user_signs_in(user)
 
     click_link district.name
     click_link 'New Review'
@@ -26,6 +22,8 @@ feature 'email sent for added review' do
     expect(page).to have_content("Look at how I turned up")
     expect(page).to have_content("Rating: 1")
     expect(page).to have_content("Reviewer: #{user.username}")
+    save_and_open_page
+    binding.pry
     expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 end
