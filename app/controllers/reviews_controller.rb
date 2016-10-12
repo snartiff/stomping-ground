@@ -21,8 +21,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
 
     if @review.save
-      # disabled so heroku will save a review
-      # ReviewMailer.new_review(@review).deliver_now
+      ReviewMailer.new_review(@review).deliver_now
       flash[:success] = "Review added successfully"
       redirect_to district_path(@review.district)
     else
