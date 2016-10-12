@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :reviews, except: [:show, :index]
   end
 
+  namespace :api do
+    resources :districts
+  end
+
   namespace :admin do
     resources :users
   end
