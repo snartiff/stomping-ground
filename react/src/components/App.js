@@ -70,7 +70,6 @@ class App extends Component {
 
     return(
       <div>
-        <h1>District Homepage</h1>
         <DistrictList
           districts={this.state.districts}
         />

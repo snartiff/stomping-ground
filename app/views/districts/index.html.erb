@@ -13,12 +13,13 @@
       <li class="delete"><%= button_to 'Delete', district, method: :delete %></li>
     <% end %>
     <% end %>
-      <li><%= link_to("#{district.name}", district) %></li>
-    <% end %>
-  </ul>
 
-  <%= link_to "Add New District", new_district_path %>
+    <% end %>
+    <%= link_to "Add New District", new_district_path %>
+  </ul>
 
   <div id="app">
   </div>
+
+
 </body>

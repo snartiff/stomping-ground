@@ -2,16 +2,20 @@ import React from 'react';
 
 const Form = props => {
   return (
-    <form onSubmit={props.handleFormSubmit}>
+
+    <form onSubmit={props.handleFormSubmit} className="district-form">
+    <h2 className="new-district">New District Form</h2>
+    <label>District Name</label>
     <input
       type="text"
-      placeholder="District title"
+      placeholder="Give me a name"
       value={props.name}
       onChange={props.handleChange}
       />
 
+    <label>Description</label>
       <textarea
-        placeholder="Description"
+        placeholder="Tell us about your district!"
         value={props.description}
         onChange={props.handleDescription}
         />
