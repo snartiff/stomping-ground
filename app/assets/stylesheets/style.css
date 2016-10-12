@@ -60,14 +60,13 @@ li.signed-in {
 span.username {
   color: #d3c0c5;
 }
-
 p.notice {
   padding-top: 150px;
-  color: #00868b;
+  color: black;
   text-align: center;
 }
 p.alert {
-  color: red;
+  color: black;
   text-align: center;
 }
 .content {
@@ -165,6 +164,7 @@ a.new-district {
 .profile-pic {
   text-align: center;
   margin: 5px;
+  padding-top: 130px;
 }
 .profile {
   text-align: center;
@@ -182,4 +182,33 @@ img.district_pic {
 }
 #new-district {
   padding-top: 500px;
+}
+h2.log {
+  padding-top: 300px;
+}
+h2.sign {
+  padding-top: 300px;
+}
+h2.edit {
+  padding-top: 300px;
+}
+h2.review {
+  padding-top: 300px;
+}
+h1.users {
+  padding-top: 280px;
+}
+h1.new-dis {
+  padding-top: 200px;
+}
+#reviews-errors {
+  color: #c25955;
+}
+#district-errors {
+  color: #c25955;
+}
+#flash {
+  color: black;
+  padding-top: 250px;
+  margin-bottom: -250px;
 }
