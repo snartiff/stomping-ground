@@ -2,6 +2,8 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @district = District.find(params[:district_id])
+    redirect_to @district
   end
 
   def show
@@ -19,8 +21,8 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
 
     if @review.save
-      ReviewMailer.new_review(@review).deliver_now
-
+      # disabled so heroku will save a review
+      # ReviewMailer.new_review(@review).deliver_now
       flash[:success] = "Review added successfully"
       redirect_to district_path(@review.district)
     else

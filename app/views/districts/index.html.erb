@@ -1,21 +1,30 @@
-<body>
-  <div class="search">
-    <%= form_tag(districts_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
-    <%= submit_tag "Search", :name => nil %>
-  <% end %>
-</div>
-  <h1>Districts Homepage</h1>
-  <ul>
-    <% @districts.each do |district| %>
-    <% unless current_user.nil? %>
-    <% if current_user.admin? %>
-      <li class="delete"><%= button_to 'Delete', district, method: :delete %></li>
-    <% end %>
-    <% end %>
-      <li><%= link_to("#{district.name}", district) %></li>
-    <% end %>
-  </ul>
+<div class="index">
+  <%= link_to "Add New District", new_district_path, class: "new-district" %>
 
-  <%= link_to "Add New District", new_district_path %>
-</body>
+    <div class="search">
+        <%= form_tag(districts_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Find your stomping ground..." %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+    </div>
+  </div>
+
+<div class="content">
+  <h1 class="boston">Boston Neighborhoods</h1>
+
+    <ul>
+      <% @districts.each do |district| %>
+      <% unless current_user.nil? %>
+      <% if current_user.admin? %>
+        <li class="delete"><%= button_to 'Delete', district, method: :delete %></li>
+      <% end %>
+      <% end %>
+      <% if district.avatar? %>
+        <%=  image_tag(district.avatar.url, class: "district_pic") %>
+        <% else %>
+          <%= image_tag("https://s-media-cache-ak0.pinimg.com/originals/56/7d/fa/567dfadfa0238e42e6f59efa9c01f504.jpg", class: 'district_pic') %>
+          <% end %>
+        <li class="neighborhood"><%= link_to("#{district.name}", district) %></li>
+      <% end %>
+    </ul>
+  </div>

@@ -10,7 +10,7 @@ feature 'searching homepage' do
     expect(page).to have_content district.name
     expect(page).to have_content district2.name
 
-    fill_in 'Search', with: district.name
+    fill_in 'search', with: district.name
     click_button "Search"
     expect(page).to have_content district.name
     expect(page).not_to have_content(district2.name)

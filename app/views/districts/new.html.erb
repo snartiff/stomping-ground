@@ -1,6 +1,18 @@
-<h1>NEW DISTRICT FORM</h1>
+<div class="new-district">
+<h1 class="new-dis">NEW DISTRICT FORM</h1>
 
 <%= form_for(@district) do |f| %>
+  <% if @district.errors.any? %>
+    <div id="district-errors">
+      <h3><%= pluralize(@district.errors.count, "error") %> prohibited this district from being saved:</h3>
+      <ul>
+        <% @district.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
 
@@ -15,3 +27,7 @@
 
   <%= f.submit "Add District" %>
 <% end %>
+</div>
+<div class="footer">
+  <%= link_to 'Back to Districts', districts_path %>
+</div>
