@@ -199,7 +199,13 @@ h1.users {
   padding-top: 280px;
 }
 h1.new-dis {
-  padding-top: 200px;
+  padding-top: 240px;
+}
+h1.dis-edit {
+  padding-top: 240px;
+}
+h2.review-edit {
+  padding-top: 240px;
 }
 #reviews-errors {
   color: #c25955;

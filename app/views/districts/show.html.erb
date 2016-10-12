@@ -19,14 +19,16 @@
   <p>Created by: <%= @district.user.username %></p>
   <% end %>
 
-  <% if current_user %>
-    <% if current_user.id == @district.user_id %>
-      <%= link_to 'Edit', edit_district_path(@district), class: "button", id: "edit-district-button" %>
+  <div class="buttons">
+    <% if current_user %>
+      <% if current_user.id == @district.user_id %>
+        <button type="button"><%= link_to 'Edit District', edit_district_path(@district), class: "button", id: "edit-district-review-button" %></button>
+      <% end %>
+      <% if current_user.id == @district.user_id || current_user.admin? %>
+          <button type="button"><%= link_to 'Delete District', @district, method: :delete %></button>
+      <% end %>
     <% end %>
-    <% if current_user.id == @district.user_id || current_user.admin? %>
-        <li class="delete"><%= button_to 'Delete District', @district, method: :delete %></li>
-    <% end %>
-  <% end %>
+  </div>
 
   <h4>REVIEWS</h4>
     <%= link_to 'Add New Review', new_district_review_path(@district), class: 'add-class' %><br />
@@ -42,10 +44,10 @@
         <% end %>
         <% if current_user %>
           <% if current_user.id == r.user_id %>
-            <%= link_to 'Edit', edit_district_review_path(@district, r), class: "button", id: "edit-district-review-button" %>
+          <button type="button"><%= link_to 'Edit District', edit_district_review_path(@district, r), class: "button", id: "edit-district-review-button" %></button>
           <% end %>
           <% if current_user.id == r.user_id || current_user.admin? %>
-            <li class="delete"><%= button_to 'Delete', district_review_path(@district, r), method: :delete %></li>
+            <button type="button"><%= link_to 'Delete District', district_review_path(@district, r), method: :delete %></button>
           <% end %>
         <% end %>
       </li>
