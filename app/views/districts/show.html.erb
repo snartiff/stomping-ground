@@ -19,16 +19,19 @@
   <p>Created by: <%= @district.user.username %></p>
   <% end %>
 
+  <% if current_user %>
+    <% if current_user.id == @district.user_id %>
+      <%= link_to 'Edit', edit_district_path(@district), class: "button", id: "edit-district-button" %>
+    <% end %>
+    <% if current_user.id == @district.user_id || current_user.admin? %>
+        <li class="delete"><%= button_to 'Delete District', @district, method: :delete %></li>
+    <% end %>
+  <% end %>
+
   <h4>REVIEWS</h4>
     <%= link_to 'Add New Review', new_district_review_path(@district), class: 'add-class' %><br />
   <ul>
     <% @reviews.each do |r| %>
-    <% if current_user %>
-      <% if current_user.admin? %>
-        <li class="delete"><%= button_to 'Delete', district_review_path(@district, r), method: :delete %></li>
-        <% end %>
-      <% end %>
-
       <li>
         Title: <%= r.title %><br />
         Body: <%= r.body %><br />
@@ -37,7 +40,15 @@
         Reviewer: <%= r.user.username %>
         <br /><br />
         <% end %>
-        </li>
+        <% if current_user %>
+          <% if current_user.id == r.user_id %>
+            <%= link_to 'Edit', edit_district_review_path(@district, r), class: "button", id: "edit-district-review-button" %>
+          <% end %>
+          <% if current_user.id == r.user_id || current_user.admin? %>
+            <li class="delete"><%= button_to 'Delete', district_review_path(@district, r), method: :delete %></li>
+          <% end %>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 </div>
