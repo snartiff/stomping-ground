@@ -20,7 +20,7 @@
       <% end %>
       <% end %>
       <% if district.avatar? %>
-        <%=  image_tag(district.avatar.url, class: "district_pic") %>
+        <%= link_to image_tag(district.avatar.url, class: "district_pic"), district %>
         <% else %>
           <%= image_tag("https://s-media-cache-ak0.pinimg.com/originals/56/7d/fa/567dfadfa0238e42e6f59efa9c01f504.jpg", class: 'district_pic') %>
           <% end %>
