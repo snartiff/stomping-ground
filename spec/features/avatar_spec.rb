@@ -10,7 +10,7 @@ feature "profile picture" do
     fill_in 'Email', with: 'jtest@test.com'
     fill_in 'Email', with: 'jtest@test.com'
     fill_in 'Password', with: 'password'
-    fill_in 'Password Confirmation', with: 'password'   
+    fill_in 'Password Confirmation', with: 'password'
     attach_file :user_avatar, "#{Rails.root}/spec/support/images/dog_test.png"
     click_button 'Sign Up'
 

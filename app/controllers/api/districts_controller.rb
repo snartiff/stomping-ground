@@ -18,7 +18,7 @@ class Api::DistrictsController < ApiController
     @district.user = current_user
     if @district.save
 
-      redirect_to @district
+      redirect_to districts_path
       flash[:success] = "District added successfully"
     else
       @district.errors.any?

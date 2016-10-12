@@ -8,14 +8,20 @@ class App extends Component {
     this.state = {
       districts: [],
       name: '',
-      description: ''
+      description: '',
+      id: ''
     };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleDescription = this.handleDescription.bind(this);
+    this.refreshPage = this.refreshPage.bind(this);
   }
 
   componentDidMount() {
+    setInterval(this.refreshPage, 5000);
+  }
+
+  refreshPage() {
     $.ajax({
       url: "api/districts",
       contentType: 'application/json'
@@ -33,19 +39,22 @@ class App extends Component {
       data: {district: formData}
 
     }).success(data => {
-      alert('Posted!');
-
-      console.log('ajax hates me!')
+      console.log('posted!');
     }).error(data => {
-      debugger;
-      alert('fail');
+      console.log('fail');
     });
 
     let newDistrict = {
       id: '',
+      key: '',
       name: this.state.name,
       description: this.state.description
     }
+
+    // let newDistricts = this.state.districts.districts
+    // newDistricts.push(newDistrict)
+
+    debugger;
     this.state.districts.districts.push(newDistrict)
     let newDistricts = this.state.districts
 
@@ -53,6 +62,9 @@ class App extends Component {
       districts: newDistricts
     });
 
+    debugger;
+    this.state.name = ''
+    this.state.description = ''
     event.preventDefault();
   }
 
