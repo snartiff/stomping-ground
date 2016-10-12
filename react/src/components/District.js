@@ -1,9 +1,10 @@
 import React from 'react';
 
 const District = props => {
+  let path = `districts/${props.id}`;
   return (
     <li>
-      <button>{props.name}</button>
+      <a href={path}>{props.name}</a>
     </li>
   );
 }

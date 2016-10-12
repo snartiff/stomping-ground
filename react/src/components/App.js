@@ -12,11 +12,8 @@ class App extends Component {
     };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleDescription = this.handleDescription.bind(this);
   }
-
-  // getInitialState() {
-  //   return { data: {districts:[]}};
-  // }
 
   componentDidMount() {
     $.ajax({
@@ -24,26 +21,39 @@ class App extends Component {
       contentType: 'application/json'
     })
     .done(data => {
-      debugger;
       this.setState({ districts: data })
     });
   }
 
-
-
   handleFormSubmit(event) {
-    event.preventDefault();
+    let formData = {name: this.state.name, description: this.state.description};
+    $.ajax({
+      type: 'POST',
+      url: 'api/districts',
+      data: {district: formData}
+
+    }).success(data => {
+      alert('Posted!');
+
+      console.log('ajax hates me!')
+    }).error(data => {
+      debugger;
+      alert('fail');
+    });
+
     let newDistrict = {
       id: '',
       name: this.state.name,
       description: this.state.description
     }
-    let newDistricts = [...this.state.districts, newDistrict];
+    this.state.districts.districts.push(newDistrict)
+    let newDistricts = this.state.districts
+
     this.setState({
-      districts: newDistricts,
-      name: '',
-      description: ''
+      districts: newDistricts
     });
+
+    event.preventDefault();
   }
 
   handleChange(event) {
@@ -51,31 +61,27 @@ class App extends Component {
     this.setState({ name: newName });
   }
 
-
-
+  handleDescription(event) {
+    let newDescription = event.target.value;
+    this.setState({ description: newDescription });
+  }
 
   render() {
-
-    let districtList = this.state.districts;
-    // let districtOne = districtList.districts[0].name
-
-    debugger;
-
 
     return(
       <div>
         <h1>District Homepage</h1>
-        <Form
-          handleFormSubmit={this.handleFormSubmit}
-          handleChange={this.handleChange}
-          name={this.state.name}
-          description={this.state.description}
-          />
-
         <DistrictList
           districts={this.state.districts}
         />
 
+        <Form
+          handleFormSubmit={this.handleFormSubmit}
+          handleChange={this.handleChange}
+          handleDescription={this.handleDescription}
+          name={this.state.name}
+          description={this.state.description}
+          />
       </div>
     )
   }

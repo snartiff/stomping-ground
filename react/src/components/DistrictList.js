@@ -1,32 +1,17 @@
 import React, { Component } from 'react';
-// import React from 'react';
 import District from './District';
 
 class DistrictList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      districts: [],
-      name: ''
-    };
   }
-  //
-  // componentDidMount() {
-  //   $.ajax({
-  //     url: "api/districts",
-  //     contentType: 'application/json'
-  //   })
-  //   .done(data => {
-  //     debugger;
-  //     this.setState({ districts: data })
-  //   });
-  // }
 
   render() {
-    let districtList = this.state.districts;
+    let districtList = this.props.districts;
+    let districts = ''
 
-      debugger;
-      let districts = districtList.districts.map(district => {
+    if (districtList.length !== 0) {
+      districts = districtList.districts.map(district => {
         return (
           <District
             key={district.id}
@@ -36,34 +21,12 @@ class DistrictList extends Component {
             />
         );
       });
+    }
 
     return (
       <ul>{districts}</ul>
     )
   }
-
 }
-
-// const DistrictList = props => {
-//   debugger;
-//   let districts = props.districts.districts.map(district => {
-//     const { id, name, description } = district;
-//
-//     return (
-//       <District
-//         key={id}
-//         id={id}
-//         name={name}
-//         description={description}
-//         />
-//     );
-//   });
-//
-//   return(
-//     <ul>
-//     {districts}
-//     </ul>
-//   );
-// };
 
 export default DistrictList;

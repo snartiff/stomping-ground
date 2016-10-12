@@ -13,7 +13,7 @@ const Form = props => {
       <textarea
         placeholder="Description"
         value={props.description}
-        onChange={props.handleChange}
+        onChange={props.handleDescription}
         />
 
       <input type="submit" value="Add District" />
