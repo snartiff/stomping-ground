@@ -20,7 +20,7 @@ feature 'Authenticated user removes reviews' do
     fill_in "Rating", with: review.rating
 
     click_button 'Submit'
-    click_button 'Delete'
+    click_link 'Delete'
 
     expect(page).to_not have_content(review.body)
     expect(page).to have_content("Review deleted")
