@@ -6,4 +6,8 @@ class District < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
+
+  def self.search(search)
+    where("name ILIKE ? OR description ILIKE ?", "%#{search}", "%#{search}")
+  end
 end

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "districts#index"
 
   resources :districts do
-    resources :reviews
+    resources :reviews, except: [:show, :index]
   end
 
   namespace :admin do

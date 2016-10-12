@@ -1,14 +1,10 @@
-
 <% if @district.avatar? %>
   <%=  image_tag(@district.avatar.url, class: "district_pic") %>
   <% else %>
     <%= image_tag("https://s-media-cache-ak0.pinimg.com/originals/56/7d/fa/567dfadfa0238e42e6f59efa9c01f504.jpg", class: 'default') %>
     <% end %>
 <h1><%= @district.name %></h1>
-<% if current_user && (current_user.id == @district.user_id) %>
-  <li class="delete"><%= button_to 'Delete District', @district, method: :delete %></li>
-  <%= link_to 'Edit', edit_district_path(@district), class: "button", id: "edit-district-button" %>
-<% end %>
+
 <p><%= @district.description %></p>
 <p>Average Rating: <%= @average_rating %> / 5</p>
 
@@ -23,25 +19,55 @@
     <% if current_user.admin?  %>
       <li class="delete"><%= button_to 'Delete', district_review_path(@district, r), method: :delete %></li>
       <% end %>
-
-      <% if current_user.id == r.user_id %>
-        <ul>
-          <li class="delete"><%= button_to 'Delete', district_review_path(@district, r), method: :delete %></li>
-          <%= link_to 'Edit', edit_district_review_path(@district, r), class: "button", id: "edit-district-review-button" %></ul>
-        <ul>
-      <% end %>
     <% end %>
-
-    <li>
-      Title: <%= r.title %><br />
-      Body: <%= r.body %><br />
-      Rating: <%= r.rating %><br />
-      <% unless r.user.nil? %>
-      Reviewer: <%= r.user.username %>
-      <% end %>
-      </li>
+<div class="show-search">
+  <%= form_tag(district_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+  <%= submit_tag "Search", :name => nil %>
   <% end %>
-</ul>
+</div>
 
-<%= link_to 'New Review', new_district_review_path(@district) %><br />
-<%= link_to 'Back', districts_path %>
+<div class="show content">
+  <% if @district.avatar? %>
+    <%=  image_tag(@district.avatar.url, class: "district_pic") %>
+    <% else %>
+      <%= image_tag("https://s-media-cache-ak0.pinimg.com/originals/56/7d/fa/567dfadfa0238e42e6f59efa9c01f504.jpg", class: 'default') %>
+      <% end %>
+  <h1><%= @district.name %></h1>
+  <p><%= @district.description %></p>
+  <p>Average Rating: <%= @average_rating %></p>
+  <% if current_user && (current_user.id == @district.user_id) %>
+    <li class="delete"><%= button_to 'Delete District', @district, method: :delete %></li>
+    <%= link_to 'Edit', edit_district_path(@district), class: "button", id: "edit-district-button" %>
+  <% end %>
+
+  <% unless @district.user.nil? %>
+  <p>Created by: <%= @district.user.username %></p>
+  <% end %>
+
+  <h4>REVIEWS</h4>
+    <%= link_to 'Add New Review', new_district_review_path(@district), class: 'add-class' %><br />
+  <ul>
+    <% @reviews.each do |r| %>
+      <li>
+        Title: <%= r.title %><br />
+        Body: <%= r.body %><br />
+        Rating: <%= r.rating %><br />
+        <% unless r.user.nil? %>
+        Reviewer: <%= r.user.username %>
+        <br /><br />
+        <% end %>
+        <% if current_user.id == r.user_id %>
+          <ul>
+            <li class="delete"><%= button_to 'Delete', district_review_path(@district, r), method: :delete %></li>
+            <%= link_to 'Edit', edit_district_review_path(@district, r), class: "button", id: "edit-district-review-button" %></ul>
+          <ul>
+        <% end %>
+        </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="footer">
+  <%= link_to 'Back to Districts', districts_path %>
+</div>
