@@ -18,7 +18,7 @@ ul {
   list-style: none;
 }
 .container {
-  padding-top: 250px;
+  padding-top: 120px;
 }
 .hidden {
   display: none;
@@ -27,7 +27,7 @@ ul {
 #navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   border-bottom: 2px solid black;
   background-color: #c25955;
   position: fixed;
@@ -37,14 +37,15 @@ ul {
   width: 100%;
   h1.header {
     font-family: "Cabin Sketch", sans-serif;
-    font-size: 4rem;
+    font-size: 3.6rem;
   }
   .logo {
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 0 10px;
     img {
-      width: 20%;
+      width: 12%;
+      margin-right: 5px;
     }
   }
   ul {
@@ -67,23 +68,22 @@ ul {
   }
 }
 .content {
-  max-width: 70%;
+  max-width: 75%;
   margin: 0 auto;
   text-align: center;
 }
 
-p.notice {
-  padding-top: 150px;
+#flash {
   color: black;
   text-align: center;
-}
-p.alert {
-  color: black;
-  text-align: center;
+  padding: 20px 0 40px 0;
+  color: #c25955;
 }
 
-img.district-image {
+img.district-pic {
   padding-bottom: 17px;
+  margin: 0 auto;
+  border-radius: 35px;
 }
 .form-header h2 {
   max-width: 60%;
@@ -133,7 +133,9 @@ h2.new-district {
   opacity: .75;
   text-align: center;
 }
-#new_district  {
+
+#new_district,
+.edit_district  {
   text-align: left;
   label {
     font-size: .8em;
@@ -177,19 +179,23 @@ h2.new-district {
     }
   }
 }
+button,
 input[type="submit"] {
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 5px 0;
+  transition: all 1s linear;
+  &:hover {
+    background-color: #c5abb1;
+  }
 }
 
 .index {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: space-around;
+  align-items: center;
   padding: 10px;
-  margin: 0 auto;
 }
 #search-form {
   display: flex;
@@ -206,31 +212,62 @@ input[type="submit"] {
     margin: 8px;
   }
 }
-h1.boston {
-  text-align: center;
-  font-size: 2.7rem;
-  padding: 20px 0;
-  margin-left: 30px;
+.district {
+  h1.boston {
+    text-align: center;
+    font-size: 2.7rem;
+    padding: 20px 0;
+    margin-left: 30px;
+  }
+
+  li.neighborhood {
+    font-size: 1.7rem;
+    padding: 15px 0 60px 0;
+    margin: 0 auto;
+  }
+  img.district-pic {
+    max-width: 600px;
+  }
+  a.new-district {
+    font-size: 1.4em;
+    padding: 15px 3px;
+  }
+
 }
 
-li.neighborhood {
-  font-size: 1.7rem;
-  padding: 15px 0 60px 0;
-}
-img.district-pic {
-  max-width: 600px;
-}
-a.new-district {
-  font-size: 1.4em;
-  padding: 15px 3px;
-}
 .show {
   width: 75%;
   display: flex;
   flex-flow: column wrap;
   margin: 0 auto;
   text-align: left;
+  img.show-pic {
+    max-width: 650px;
+    border-radius: 35px;
+  }
+  li.review {
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  button {
+    padding: 5px;
+  }
+  span.title {
+    font-size: 1.5em;
+    color: #6e2e3e;
+    padding-bottom: 7px;
+  }
+  p.body {
+    color: #96858a;
+    span.rating {
+      font-size: .8em;
+    }
+    span.reviewer {
+
+    }
+  }
 }
+
 .footer {
   font-size: 1.4em;
   padding: 15px 3px;
@@ -251,20 +288,29 @@ a.new-district {
   float: right;
 }
 
-#reviews-errors {
-  color: #c25955;
-}
-#district-errors {
-  color: #c25955;
-}
-#flash {
-  color: black;
-  padding-top: 250px;
-  margin-bottom: -250px;
-}
-
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1100px) {
   .container {
-    padding-top: 400px;
+    padding-top: 85px;
+  }
+    #navbar {
+      .logo img {
+        padding-top: 5px;
+      }
+      h1.header {
+        padding: 10px 0 0 0;
+        margin: 0px;
+        a {
+          font-size: 2rem;
+        }
+      li a {
+        font-size: .84em;
+      }
+      li.signed-in {
+        font-size: .84em;
+      }
+      span.username {
+        font-size: .84em;
+      }
+    }
   }
 }

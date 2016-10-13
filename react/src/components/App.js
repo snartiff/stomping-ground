@@ -29,11 +29,11 @@ class App extends Component {
   render() {
     return(
       <div>
-        <ul className="districts">
+
         <DistrictList
           districts={this.state.districts}
           />
-        </ul>
+      
       </div>
     )
   }

@@ -1,4 +1,4 @@
-<div class="content">
+
   <div class="index">
     <%= link_to "Add New District", new_district_path %>
     <div class="search">
@@ -8,6 +8,7 @@
       <% end %>
     </div>
   </div>
+<div class="district content">
 
     <h1 class="boston">BOSTON NEIGHBORHOODS</h1>
 
@@ -27,7 +28,7 @@
       <% if district.avatar? %>
        <%= link_to image_tag(district.avatar.url, class: "district_pic"), district %>
        <% else %>
-         <%= link_to image_tag("https://s-media-cache-ak0.pinimg.com/originals/56/7d/fa/567dfadfa0238e42e6f59efa9c01f504.jpg", class: 'district_pic'), district %>
+         <li><%= link_to image_tag("https://s-media-cache-ak0.pinimg.com/originals/56/7d/fa/567dfadfa0238e42e6f59efa9c01f504.jpg", class: 'district_pic'), district %></li>
          <% end %>
        <li class="neighborhood"><%= link_to("#{district.name}", district) %></li>
      <% end %>
