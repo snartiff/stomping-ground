@@ -67,6 +67,5 @@ feature 'user creates account' do
 
     expect(page).to have_content('You\'re in! You have signed up successfully.')
     expect(page).to have_content('Sign Out')
-
   end
 end

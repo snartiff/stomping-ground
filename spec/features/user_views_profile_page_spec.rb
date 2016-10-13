@@ -19,4 +19,11 @@ feature 'viewing profile show page' do
     expect(page).to have_content(user.first_name)
     expect(page).to have_content(user.last_name)
   end
+
+  scenario 'unauthenticated user cannot view a profile account page' do
+    visit root_path
+
+    expect(page).to_not have_content('Back to Districts')
+    expect(page).to_not have_content('Edit Profile')
+  end
 end

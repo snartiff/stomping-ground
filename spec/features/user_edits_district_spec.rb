@@ -1,7 +1,17 @@
 require 'rails_helper'
 
 feature 'unauthenticated user cannot edit district' do
-  scenario 'user does not see edit and delete button for district' do
+  scenario 'user does not see delete button for district' do
+    district = FactoryGirl.create(:district)
+
+    visit root_path
+    click_link district.name
+    expect(page).to have_content district.name
+    expect(page).to have_content district.description
+    expect(page).to_not have_content 'Delete District'
+  end
+
+  scenario 'user does not see edit button for district' do
     district = FactoryGirl.create(:district)
 
     visit root_path
@@ -9,7 +19,6 @@ feature 'unauthenticated user cannot edit district' do
     expect(page).to have_content district.name
     expect(page).to have_content district.description
     expect(page).to_not have_content 'Edit District'
-    expect(page).to_not have_content 'Delete District'
   end
 end
 

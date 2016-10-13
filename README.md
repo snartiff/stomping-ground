@@ -57,7 +57,6 @@ rails s
 - Admin has ability to delete content if inappropriate
 - Admin has ability to delete a user account if they violate terms of use
 - The index page for neighborhoods live-updates using React.js
-- The ability to search for a neighborhood name
 
 
 #Technologies Utilized

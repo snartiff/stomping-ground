@@ -6,7 +6,6 @@ feature 'updating profile show page' do
     user = User.create(username: "Jewls", first_name: "Julie", last_name: "Grace", email: "hello@test.com", password: "password", password_confirmation: "password")
 
     visit root_path
-
     click_link 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
@@ -22,7 +21,6 @@ feature 'updating profile show page' do
     user = User.create(username: "Jewls", first_name: "Julie", last_name: "Grace", email: "hello@test.com", password: "password", password_confirmation: "password")
 
     visit root_path
-
     click_link 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
@@ -34,5 +32,12 @@ feature 'updating profile show page' do
     click_button 'Update'
 
     expect(page).to have_content('Your account has been updated successfully.')
+  end
+
+  scenario 'unauthenticated user cannot make edits to account' do
+
+    visit root_path
+
+    expect(page).to_not have_content('My Account')
   end
 end

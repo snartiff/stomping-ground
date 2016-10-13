@@ -47,4 +47,15 @@ feature 'Authenticated user adds reviews' do
     expect(page).to have_content "Body can't be blank"
     expect(page).to have_content "Rating is not a number"
   end
+
+  scenario 'unauthenticated user cannot add review' do
+    user = FactoryGirl.create(:user)
+    district = FactoryGirl.create(:district)
+
+    visit root_path
+    click_link district.name
+    click_link 'New Review'
+
+    expect(page).to have_content "You need to sign in or sign up before continuing."
+  end
 end
