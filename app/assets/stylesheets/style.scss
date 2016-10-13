@@ -273,11 +273,16 @@ input[type="submit"] {
   padding: 15px 3px;
 }
 .profile-pic {
-  text-align: center;
+
   margin: 5px;
+  width: 60%;
+  border-radius: 50%;
+  margin: 0 auto;
 }
 .profile {
+  width: 80%;
   text-align: center;
+  margin: 0 auto;
 }
 
 .add-class {
