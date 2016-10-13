@@ -1,6 +1,7 @@
-
 body {
   font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  margin: 0;
   }
 h1,
 h2,
@@ -9,38 +10,80 @@ h4 {
   text-transform: uppercase;
   font-size: 1.7em;
 }
+a {
+  text-decoration: none;
+  color: #421b25;
+}
 ul {
   list-style: none;
 }
-#app {
-  margin-bottom: 20px 0;
+.container {
+  padding-top: 250px;
 }
-#navbar ul {
+.hidden {
+  display: none;
+}
+
+#navbar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  padding: 15px;
-}
-#navbar ul li {
-  padding: 0 15px;
-  color: #329ea2;
+  border-bottom: 2px solid black;
+  background-color: #c25955;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  h1.header {
+    font-family: "Cabin Sketch", sans-serif;
+    font-size: 4rem;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    img {
+      width: 20%;
     }
-li.signed-in {
-    text-transform: lowercase;
-    font-variant: small-caps;
-    font-size: 1.4em;
+  }
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px;
+    li {
+      padding: 0 15px;
+      color: #421b25;
+    }
+    li.signed-in {
+      text-transform: lowercase;
+      font-variant: small-caps;
+      font-size: 1.4em;
+    }
+    span.username {
+      color: #d3c0c5;
+    }
+  }
 }
-span.username {
-  color: #00868b;
+.content {
+  max-width: 70%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 p.notice {
-    color: #00868b;
-    text-align: center;
-  }
-p.alert {
-  color: red;
+  padding-top: 150px;
+  color: black;
   text-align: center;
+}
+p.alert {
+  color: black;
+  text-align: center;
+}
+
+img.district-image {
+  padding-bottom: 17px;
 }
 .form-header h2 {
   max-width: 60%;
@@ -56,17 +99,17 @@ form {
   padding: 20px 0;
 }
 #error_explanation {
-    font-size: .8em;
-    text-align: center;
-    padding: 10px 0;
-  }
+  font-size: .8em;
+  text-align: center;
+  padding: 10px 0;
+}
 #error_explanation h2 {
   font-size: 2.2em;
   color: red;
 }
 label {
-    color: #329ea2;
-  }
+  color: #329ea2;
+}
 em {
   color: #329ea2;
   font-size: .8em;
@@ -82,6 +125,7 @@ em {
   margin-left: -25px;
   border: 2px solid black;
 }
+
 h2.new-district {
   font-size: 1.2em;
   padding: 20px 0;
@@ -89,47 +133,138 @@ h2.new-district {
   opacity: .75;
   text-align: center;
 }
-
-form.district-form {
-  display: flex;
-  flex-direction: column;
+#new_district  {
+  text-align: left;
+  label {
+    font-size: .8em;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: 1.13px;
+  }
+  input[type="text"],
+  textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 5px;
+  }
+  input[type="text"] {
+    border: none;
+    border-bottom: 1px solid #ccc;
+  }
+  textarea {
+    margin-top: 7px;
+    border: 1px solid #ccc;
+    height: 90px;
+  }
+  input#district_avatar {
+    padding: 10px 0;
+  }
+  .submit {
+    margin: 0 auto;
+  }
+  input[type="submit"] {
+    width: 50%;
+    text-transform: uppercase;
+    color: #329ea2;
+    margin: 15px auto;
+    transition: all 1s linear;
+    &:hover {
+      background-color: #99cccc;
+      color: #000;
+      border: none;
+      letter-spacing: 2px;
+    }
+  }
 }
-.district-form label {
-  font-size: .8em;
-  padding-bottom: 5px;
-  text-transform: uppercase;
-  font-weight: bolder;
-  letter-spacing: 1.13px;
-}
-.district-form input[type="text"],
-.district-form textarea {
-  margin-bottom: 15px;
-  padding: 5px;
-}
-.district-form textarea {
-  margin-top: 7px;
-  border: 1px solid #ccc;
-  height: 90px;
-}
-.district-form input[type="text"] {
-  border: none;
-  border-bottom: 1px solid #ccc;
-}
-.district-form input[type="submit"] {
+input[type="submit"] {
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 50%;
-  margin: 0 auto;
   padding: 5px 0;
-  text-transform: uppercase;
-  color: #329ea2;
-  transition: all 1s linear;
 }
-.district-form input[type="submit"]:hover {
-  background-color: #99cccc;
-  color: #000;
-  border: none;
 
-  letter-spacing: 2px;
+.index {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px;
+  margin: 0 auto;
+}
+#search-form {
+  display: flex;
+  float: right;
+  input[type="text"] {
+    height: 25px;
+    width: 400px;
+    font-size: 1rem;
+    padding: 5px;
+  }
+  input[type="submit"] {
+    height: 30px;
+    width: 80px;
+    margin: 8px;
+  }
+}
+h1.boston {
+  text-align: center;
+  font-size: 2.7rem;
+  padding: 20px 0;
+  margin-left: 30px;
+}
+
+li.neighborhood {
+  font-size: 1.7rem;
+  padding: 15px 0 60px 0;
+}
+img.district-pic {
+  max-width: 600px;
+}
+a.new-district {
+  font-size: 1.4em;
+  padding: 15px 3px;
+}
+.show {
+  width: 75%;
+  display: flex;
+  flex-flow: column wrap;
+  margin: 0 auto;
+  text-align: left;
+}
+.footer {
+  font-size: 1.4em;
+  padding: 15px 3px;
+}
+.profile-pic {
+  text-align: center;
+  margin: 5px;
+}
+.profile {
+  text-align: center;
+}
+
+.add-class {
+  font-size: 20px;
+  color: #c25955;
+}
+.show-search {
+  float: right;
+}
+
+#reviews-errors {
+  color: #c25955;
+}
+#district-errors {
+  color: #c25955;
+}
+#flash {
+  color: black;
+  padding-top: 250px;
+  margin-bottom: -250px;
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    padding-top: 400px;
+  }
 }

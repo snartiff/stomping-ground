@@ -1,12 +1,11 @@
 class Api::DistrictsController < ApiController
   def index
     @districts = District.all
-
-    respond_to do |format|
-      format.json do
-        render json: { districts: @districts }
+      respond_to do |format|
+        format.json do
+          render json: { districts: @districts }
+        end
       end
-    end
   end
 
   def new
@@ -17,7 +16,6 @@ class Api::DistrictsController < ApiController
     @district = District.new(district_params)
     @district.user = current_user
     if @district.save
-
       redirect_to districts_path
       flash[:success] = "District added successfully"
     else
@@ -31,6 +29,4 @@ class Api::DistrictsController < ApiController
   def district_params
     params.require(:district).permit(:name, :description, :avatar)
   end
-
-
 end
