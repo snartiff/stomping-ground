@@ -1,6 +1,8 @@
-<h1 class="dis-edit">EDIT DISTRICT FORM</h1>
+
 
 <%= form_for(@district) do |f| %>
+
+<h1 class="dis-edit">EDIT DISTRICT FORM</h1>
 
   <% if @district.errors.any? %>
     <div id="district-errors">
@@ -28,4 +30,4 @@
   <%= f.submit "Update District" %>
 <% end %>
 
-<%= link_to 'Back', districts_path %>
+<%= link_to 'Back', district_path(@district), class: "back-button" %>

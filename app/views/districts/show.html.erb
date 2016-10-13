@@ -7,9 +7,9 @@
 
 <div class="show content">
   <% if @district.avatar? %>
-    <%=  image_tag(@district.avatar.url, class: "district_pic") %>
+    <%=  image_tag(@district.avatar.url, class: "show-pic") %>
     <% else %>
-      <%= image_tag("https://s-media-cache-ak0.pinimg.com/originals/56/7d/fa/567dfadfa0238e42e6f59efa9c01f504.jpg", class: 'default') %>
+      <%= image_tag("https://s-media-cache-ak0.pinimg.com/originals/56/7d/fa/567dfadfa0238e42e6f59efa9c01f504.jpg", class: 'show-pic') %>
       <% end %>
   <h1><%= @district.name %></h1>
   <p><%= @district.description %></p>
@@ -34,13 +34,12 @@
     <%= link_to 'Add New Review', new_district_review_path(@district), class: 'add-class' %><br />
   <ul>
     <% @reviews.each do |r| %>
-      <li>
-        Title: <%= r.title %><br />
-        Body: <%= r.body %><br />
-        Rating: <%= r.rating %><br />
+      <li class="review">
+        <span class="title"><%= r.title %></span><br />
+        <p class="body"><%= r.body %><br />
+        <span class="rating">Rating: <%= r.rating %></span><br /><br />
         <% unless r.user.nil? %>
-        Reviewer: <%= r.user.username %>
-        <br /><br />
+        <span class="reviewer">-<%= r.user.username %></span></p>
           <% end %>
         <% up_votes = r.votes.where(:vote => true) %>
         <% down_votes = r.votes.where(:vote => false) %>
@@ -52,7 +51,6 @@
         <div id="downvote-count">
           <%= down_votes.count %> Downvotes
         </div>
-
 
         <% if current_user %>
           <button type="button"><%= link_to "Vote Up", vote_up_path(r), :remote => true, id: "vote_up" %></button>

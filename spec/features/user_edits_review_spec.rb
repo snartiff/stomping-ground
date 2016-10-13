@@ -7,7 +7,7 @@ feature 'unauthenticated user cannot edit review' do
 
     visit root_path
     click_link district.name
-    expect(page).to have_content 'Title: Best neighborhood ever'
+    expect(page).to have_content 'Best neighborhood ever'
     expect(page).to have_content 'Rating: 5'
     expect(page).to_not have_content 'Edit Review'
     expect(page).to_not have_content 'Delete Review'
@@ -25,7 +25,7 @@ feature 'authenticated user can edit review' do
     click_link district.name
     expect(page).to have_content district.name
     expect(page).to have_content 'Lived here my whole life and it\'s been amazing'
-    expect(page).to have_content 'Title: Best neighborhood ever'
+    expect(page).to have_content 'Best neighborhood ever'
 
     click_link 'Edit Review'
     fill_in 'review_title', with: 'New review title'
@@ -47,7 +47,7 @@ feature 'authenticated user leaves edit field blank' do
     click_link district.name
     expect(page).to have_content district.name
     expect(page).to have_content 'Lived here my whole life and it\'s been amazing'
-    expect(page).to have_content 'Title: Best neighborhood ever'
+    expect(page).to have_content 'Best neighborhood ever'
 
     click_link 'Edit Review'
     fill_in 'review_title', with: ''
