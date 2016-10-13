@@ -7,7 +7,8 @@
     "heroku-postbuild": "NODE_ENV=production npm run webpack -- -p",
     "start": "npm run webpack -- --watch",
     "test": "node_modules/.bin/karma start react/karma.conf.js",
-    "webpack": "node_modules/.bin/webpack --config ./react/webpack.config.js"
+    "webpack": "node_modules/.bin/webpack --config ./react/webpack.config.js",
+    "webpack:deploy": "webpack --config=webpack/webpack.config.js -p"
   },
   "author": "",
   "license": "ISC",
