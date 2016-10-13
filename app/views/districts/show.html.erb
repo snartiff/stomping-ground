@@ -1,10 +1,3 @@
-<div class="show-search">
-  <%= form_tag(district_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search" %>
-  <%= submit_tag "Search", :name => nil %>
-  <% end %>
-</div>
-
 <div class="show content">
   <% if @district.avatar? %>
     <%=  image_tag(@district.avatar.url, class: "show-pic") %>
