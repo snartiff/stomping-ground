@@ -35,28 +35,38 @@ Run the following (after git cloning):
 
 bundle install
 
+npm install
+
 rake db:create
 
 rake db:migrate
+
+npm start
 
 rails s
 
 
 #Features
-- User signs up
+- User has ability to signs up and update profile
 - User uploads a profile picture
 - User can view and review neighborhoods
-- User upvotes or downvotes API (user can only vote once)
-- Neighborhood creater recieves email when someone reviews their API
+- User can up vote or down vote each review (user can only vote once)
+- Neighborhood creator receives an email when someone reviews their neighborhood
+- Neighborhood creator has the ability it update or delete their neighborhood
+- User has ability to update delete their review
 - Admin has ability to delete content if inappropriate
-- Admin has ability to delete user account if they violate terms of use
+- Admin has ability to delete a user account if they violate terms of use
+- The index page for neighborhoods live-updates using React.js
+- The ability to search for a neighborhood name
 
 
 #Technologies Utilized
 - Rails
 - Ajax
+- React
 - JQuery
 - Devise (User Authentication)
 - CarrierWave (Photo Uploads)
-- Factory_Girl (Test Data)
-- SendGrid (ActionMailer)
+- Gmail SMTP (ActionMailer)
+- Testing: Factory_Girl, Capybara, RSpec
+- Sass

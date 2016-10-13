@@ -2,6 +2,8 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @district = District.find(params[:district_id])
+    redirect_to @district
   end
 
   def show
@@ -20,7 +22,6 @@ class ReviewsController < ApplicationController
 
     if @review.save
       ReviewMailer.new_review(@review).deliver_now
-
       flash[:success] = "Review added successfully"
       redirect_to district_path(@review.district)
     else
@@ -38,9 +39,24 @@ class ReviewsController < ApplicationController
     redirect_to district_path(@district)
   end
 
+  def edit
+    @district = District.find(params[:district_id])
+    @review = @district.reviews.find(params[:id])
+  end
+
+  def update
+    @district = District.find(params[:district_id])
+    @review = @district.reviews.find(params[:id])
+    if @review.update_attributes(review_params)
+      redirect_to @district
+    else
+      render :edit
+    end
+  end
+
   protected
 
   def review_params
-    params.require(:review).permit(:title, :body, :rating, :tags)
+    params.require(:review).permit(:title, :body, :rating)
   end
 end

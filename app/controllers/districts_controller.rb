@@ -18,7 +18,9 @@ class DistrictsController < ApplicationController
     @reviews.each do |r|
       @average_rating += r.rating
     end
-    @average_rating = @average_rating.fdiv(@reviews.length)
+
+    @average_rating = @average_rating.fdiv(@reviews.length).round(1)
+
     if @average_rating.nan?
       @average_rating = 0
     end
@@ -47,6 +49,19 @@ class DistrictsController < ApplicationController
     @district.destroy
     flash[:notice] = 'District deleted'
     redirect_to districts_path
+  end
+
+  def edit
+    @district = District.find(params[:id])
+  end
+
+  def update
+    @district = District.find(params[:id])
+    if @district.update_attributes(district_params)
+      redirect_to @district
+    else
+      render :edit
+    end
   end
 
   protected

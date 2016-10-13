@@ -1,16 +1,6 @@
-<h2 class="review">WRITE A NEW REVIEW</h2>
+<h2 class="review-edit">EDIT</h2>
 
 <%= form_for [@district, @review] do |f| %>
-  <% if @review.errors.any? %>
-    <div id="reviews-errors">
-      <h3><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h3>
-      <ul>
-        <% @review.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :title %><br />
