@@ -1,12 +1,11 @@
 require 'rails_helper'
 
-feature "un-authenticated visitor sees a list of districts" do
+feature "unauthenticated visitor sees a list of districts" do
   scenario "sees a list of districts and link for new district" do
     back_bay = FactoryGirl.create(:district)
     cambridge = FactoryGirl.create(:district, name: "Cambridge")
 
     visit districts_path
-
     expect(page).to have_content back_bay.name
     expect(page).to have_link cambridge.name
 
