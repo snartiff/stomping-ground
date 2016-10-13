@@ -18,6 +18,9 @@ a {
 ul {
   list-style: none;
 }
+.container {
+  padding-top: 250px;
+}
 .hidden {
   display: none;
 }
@@ -80,6 +83,9 @@ p.alert {
   max-width: 70%;
   margin: 0 auto;
   text-align: center;
+}
+img.district-image {
+  padding-bottom: 17px;
 }
 .form-header h2 {
   max-width: 60%;
@@ -176,7 +182,7 @@ form.district-form {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 250px 10px 10px 10px;
+  padding: 10px;
   margin: 0 auto;
 }
 h1.boston {
@@ -222,7 +228,7 @@ a.new-district {
 .profile-pic {
   text-align: center;
   margin: 5px;
-  padding-top: 130px;
+  /*padding-top: 130px;*/
 }
 .profile {
   text-align: center;
@@ -235,13 +241,13 @@ img.district_pic {
   color: #c25955;
 }
 .show-search {
-  padding-top: 250px;
+  /*padding-top: 250px;*/
   float: right;
 }
-#new-district {
+/*#new-district {
   padding-top: 500px;
-}
-h2.log {
+}*/
+/*h2.log {
   padding-top: 300px;
 }
 h2.sign {
@@ -264,7 +270,7 @@ h1.dis-edit {
 }
 h2.review-edit {
   padding-top: 240px;
-}
+}*/
 #reviews-errors {
   color: #c25955;
 }
@@ -275,4 +281,10 @@ h2.review-edit {
   color: black;
   padding-top: 250px;
   margin-bottom: -250px;
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    padding-top: 400px;
+  }
 }
