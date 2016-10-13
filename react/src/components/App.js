@@ -6,14 +6,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      districts: [],
-      name: '',
-      description: ''
+      districts: []
     };
     this.refreshPage = this.refreshPage.bind(this);
   }
 
   componentDidMount() {
+    this.refreshPage();
     setInterval(this.refreshPage, 5000);
   }
 
@@ -23,16 +22,6 @@ class App extends Component {
       contentType: 'application/json'
     })
     .done(data => {
-      this.setState({ name: data.name })
-    });
-  }
-
-  render() {
-    return(
-      <div>
-        <ul className="districts">
-          {this.state.districts}
-        </ul>
       this.setState({ districts: data })
     });
   }
@@ -40,9 +29,11 @@ class App extends Component {
   render() {
     return(
       <div>
+        <ul className="districts">
         <DistrictList
           districts={this.state.districts}
-        />
+          />
+        </ul>
       </div>
     )
   }

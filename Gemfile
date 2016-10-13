@@ -62,8 +62,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :test do
   gem 'rspec-rails'
   gem 'coveralls', require: false
-  gem 'capybara-webkit'
-  gem 'selenium-webdriver'
 end
 
 ruby '2.3.1'
