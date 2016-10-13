@@ -1,14 +1,21 @@
+<div class="profile-pic">
 <% if current_user.avatar? %>
   <%=  image_tag(current_user.avatar.url, class: "profile-pic") %></div>
 <% else %>
   <%= image_tag("http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-ponsy-deer.png", class: "profile-pic") %>
 <% end %>
+</div>
 
-<h1>Welcome, <%=current_user.first_name%>!</h1>
+<div class="profile">
+  <h1>Welcome, <%=current_user.first_name%>!</h1>
 
-<p>Username: <%= current_user.username %></p>
-<p>Member: <%= current_user.first_name %> <%= current_user.last_name %></p>
-<p>Email: <%= current_user.email %></p>
+  <p>Username: <%= current_user.username %></p>
+  <p>Member: <%= current_user.first_name %> <%= current_user.last_name %></p>
+  <p>Email: <%= current_user.email %></p>
 
-<p><%= link_to 'Edit Profile', edit_user_registration_path %></p><br />
-<p><%= link_to 'Back to Districts', root_path %></p>
+  <p><%= link_to 'Edit Profile', edit_user_registration_path %></p><br />
+</div>
+
+<div class="footer">
+  <%= link_to 'Back to Districts', districts_path %>
+</div>

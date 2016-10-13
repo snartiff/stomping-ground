@@ -1,8 +1,9 @@
-<h2 class="review">WRITE A NEW REVIEW</h2>
+<h2 class="review-edit">EDIT</h2>
 
 <%= form_for [@district, @review] do |f| %>
+
   <% if @review.errors.any? %>
-    <div id="reviews-errors">
+    <div id="review-errors">
       <h3><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h3>
       <ul>
         <% @review.errors.full_messages.each do |message| %>
@@ -14,17 +15,17 @@
 
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title, required: true, autofocus: true %>
+    <%= f.text_field :title, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label :body %><br />
-    <%= f.text_field :body, autofocus: true %>
+    <%= f.text_field :body %>
   </div>
 
   <div class="field">
     <%= f.label :rating %><br />
-    <%= f.number_field :rating, min: 1, max: 5, autofocus: true %>
+    <%= f.number_field :rating, min: 1, max: 5 %>
   </div>
 
   <div class="actions">

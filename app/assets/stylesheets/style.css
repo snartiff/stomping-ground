@@ -1,6 +1,8 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  margin: 0;
   }
 h1,
 h2,
@@ -9,8 +11,46 @@ h4 {
   text-transform: uppercase;
   font-size: 1.7em;
 }
+a {
+  text-decoration: none;
+  color: #421b25;
+}
 ul {
   list-style: none;
+}
+.container {
+  padding-top: 250px;
+}
+.hidden {
+  display: none;
+}
+#app {
+  margin-bottom: 20px 0;
+}
+
+h1.header {
+  font-family: "Cabin Sketch", sans-serif;
+  font-size: 4rem;
+}
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid black;
+  background-color: #c25955;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+.logo img {
+  width: 20%;
 }
 #navbar ul {
   display: flex;
@@ -20,24 +60,32 @@ ul {
 }
 #navbar ul li {
   padding: 0 15px;
-  color: #329ea2;
-    }
+  color: #421b25;
+}
 li.signed-in {
-    text-transform: lowercase;
-    font-variant: small-caps;
-    font-size: 1.4em;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  font-size: 1.4em;
 }
 span.username {
-  color: #00868b;
+  color: #d3c0c5;
 }
-
 p.notice {
-    color: #00868b;
-    text-align: center;
-  }
-p.alert {
-  color: red;
+  padding-top: 150px;
+  color: black;
   text-align: center;
+}
+p.alert {
+  color: black;
+  text-align: center;
+}
+.content {
+  max-width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+img.district-image {
+  padding-bottom: 17px;
 }
 .form-header h2 {
   max-width: 60%;
@@ -53,17 +101,17 @@ form {
   padding: 20px 0;
 }
 #error_explanation {
-    font-size: .8em;
-    text-align: center;
-    padding: 10px 0;
-  }
+  font-size: .8em;
+  text-align: center;
+  padding: 10px 0;
+}
 #error_explanation h2 {
   font-size: 2.2em;
   color: red;
 }
 label {
-    color: #329ea2;
-  }
+  color: #329ea2;
+}
 em {
   color: #329ea2;
   font-size: .8em;
@@ -78,4 +126,165 @@ em {
   height: 40px;
   margin-left: -25px;
   border: 2px solid black;
+}
+
+h2.new-district {
+  font-size: 1.2em;
+  padding: 20px 0;
+  color: #66a3a3;
+  opacity: .75;
+  text-align: center;
+}
+
+form.district-form {
+  display: flex;
+  flex-direction: column;
+}
+.district-form label {
+  font-size: .8em;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  letter-spacing: 1.13px;
+}
+.district-form input[type="text"],
+.district-form textarea {
+  margin-bottom: 15px;
+  padding: 5px;
+}
+.district-form textarea {
+  margin-top: 7px;
+  border: 1px solid #ccc;
+  height: 90px;
+}
+.district-form input[type="text"] {
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+.district-form input[type="submit"] {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 50%;
+  margin: 0 auto;
+  padding: 5px 0;
+  text-transform: uppercase;
+  color: #329ea2;
+  transition: all 1s linear;
+}
+.district-form input[type="submit"]:hover {
+  background-color: #99cccc;
+  color: #000;
+  border: none;
+  letter-spacing: 2px;
+}
+.index {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px;
+  margin: 0 auto;
+}
+h1.boston {
+  text-align: center;
+  font-size: 2.7rem;
+  padding: 20px 0;
+  margin-left: 30px;
+}
+#search-form {
+  display: flex;
+  float: right;
+}
+#search-form input[type="text"] {
+  height: 25px;
+  width: 400px;
+  font-size: 1rem;
+  padding: 5px;
+}
+input[type="submit"] {
+  height: 30px;
+  width: 80px;
+  margin: 8px;
+}
+li.neighborhood {
+  font-size: 2rem;
+  padding: 15px 0 60px 0;
+}
+a.new-district {
+  font-size: 1.4em;
+  padding: 15px 3px;
+}
+.show {
+  width: 75%;
+  display: flex;
+  flex-flow: column wrap;
+  margin: 0 auto;
+  text-align: left;
+}
+.footer {
+  font-size: 1.4em;
+  padding: 15px 3px;
+}
+.profile-pic {
+  text-align: center;
+  margin: 5px;
+  /*padding-top: 130px;*/
+}
+.profile {
+  text-align: center;
+}
+img.district_pic {
+  max-width: 600px;
+}
+.add-class {
+  font-size: 20px;
+  color: #c25955;
+}
+.show-search {
+  /*padding-top: 250px;*/
+  float: right;
+}
+/*#new-district {
+  padding-top: 500px;
+}*/
+/*h2.log {
+  padding-top: 300px;
+}
+h2.sign {
+  padding-top: 300px;
+}
+h2.edit {
+  padding-top: 300px;
+}
+h2.review {
+  padding-top: 300px;
+}
+h1.users {
+  padding-top: 280px;
+}
+h1.new-dis {
+  padding-top: 240px;
+}
+h1.dis-edit {
+  padding-top: 240px;
+}
+h2.review-edit {
+  padding-top: 240px;
+}*/
+#reviews-errors {
+  color: #c25955;
+}
+#district-errors {
+  color: #c25955;
+}
+#flash {
+  color: black;
+  padding-top: 250px;
+  margin-bottom: -250px;
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    padding-top: 400px;
+  }
 }

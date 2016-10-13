@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'sendgrid-ruby'
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem 'fog'
+gem 'fog-aws'
 gem 'mini_magick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -42,6 +44,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -59,6 +62,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :test do
   gem 'rspec-rails'
   gem 'coveralls', require: false
+  gem 'capybara-webkit'
+  gem 'selenium-webdriver'
 end
 
 ruby '2.3.1'
