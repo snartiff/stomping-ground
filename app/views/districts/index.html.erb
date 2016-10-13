@@ -3,23 +3,30 @@
     <%= form_tag(districts_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search" %>
     <%= submit_tag "Search", :name => nil %>
-  <% end %>
-</div>
-  <h1>Districts Homepage</h1>
-  <ul>
-    <% @districts.each do |district| %>
-    <% unless current_user.nil? %>
-    <% if current_user.admin? %>
-      <li class="delete"><%= button_to 'Delete', district, method: :delete %></li>
     <% end %>
-    <% end %>
-
-    <% end %>
-    <%= link_to "Add New District", new_district_path %>
-  </ul>
+  </div>
+    <h1>Districts Homepage</h1>
+      <%= link_to "Add New District", new_district_path %>
 
   <div id="app">
   </div>
 
-
+  <div class="hidden">
+    <h1>DISTRICTS HOMEPAGE</h1>
+      <ul>
+      <% @districts.each do |district| %>
+        <% unless current_user.nil? %>
+          <% if current_user.admin? %>
+            <li class="delete"><%= button_to 'Delete', district, method: :delete %></li>
+          <% end %>
+        <% end %>
+        <% if district.avatar? %>
+         <%= link_to image_tag(district.avatar.url, class: "district_pic"), district %>
+         <% else %>
+           <%= link_to image_tag("https://s-media-cache-ak0.pinimg.com/originals/56/7d/fa/567dfadfa0238e42e6f59efa9c01f504.jpg", class: 'district_pic'), district %>
+           <% end %>
+         <li class="neighborhood"><%= link_to("#{district.name}", district) %></li>
+       <% end %>
+    </ul>
+  </div>
 </body>

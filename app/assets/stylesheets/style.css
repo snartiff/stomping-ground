@@ -12,6 +12,9 @@ h4 {
 ul {
   list-style: none;
 }
+.hidden {
+  display: none;
+}
 #app {
   margin-bottom: 20px 0;
 }
