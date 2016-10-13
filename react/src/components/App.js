@@ -51,12 +51,12 @@ class App extends Component {
       description: this.state.description
     }
 
-    // let newDistricts = this.state.districts.districts
-    // newDistricts.push(newDistrict)
+    let newDistricts = this.state.districts.districts
+    newDistricts.push(newDistrict)
 
-    debugger;
-    this.state.districts.districts.push(newDistrict)
-    let newDistricts = this.state.districts
+    // debugger;
+    // this.state.districts.districts.push(newDistrict)
+    // let newDistricts = this.state.districts
 
     this.setState({
       districts: newDistricts
