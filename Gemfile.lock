@@ -398,6 +398,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   fog
+  fog-aws
   jbuilder (~> 2.5)
   jquery-rails
   launchy
