@@ -46,8 +46,7 @@ feature 'votes on reviews' do
     visit root_path
     click_link district.name
 
-    expect(page).to have_content("1 Upvotes")
-    expect(page).to_not have_link("Vote Up")
+    expect(page).to_not have_button("upvotes")
     expect(page).to have_content(district.name)
     expect(page).to have_content(review.body)
   end
