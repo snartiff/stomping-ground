@@ -2,8 +2,6 @@ class VotesController < ApplicationController
 
   def vote_up
     @review = Review.find(params[:id])
-    # @district = @review.district
-
     @votes = @review.votes
     if @votes.exists?(:user => current_user)
       @vote = @votes.where(:user => current_user)[0]
@@ -13,7 +11,6 @@ class VotesController < ApplicationController
         Vote.destroy(@vote)
       end
     else
-      binding.pry
       @review.votes.create(:user_id => current_user.id, :review_id => @review.id, :vote => true)
     end
 

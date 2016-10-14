@@ -31,11 +31,17 @@ ul {
   font-size: 18px;
 }
 
+a.back-link {
+  margin-left: 20px;
+  text-align: center;
+  color: #6e2e3e;
+  margin-bottom: 20px;
+}
+
 #navbar {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  border-bottom: 2px solid black;
   background-color: #c25955;
   position: fixed;
   top: 0;
@@ -60,6 +66,9 @@ ul {
     justify-content: flex-end;
     align-items: center;
     padding: 15px;
+    a:hover {
+      border: none;
+    }
     li {
       padding: 0 15px;
       color: #421b25;
@@ -83,7 +92,7 @@ ul {
 #flash {
   color: black;
   text-align: center;
-  padding: 20px 0 40px 0;
+  padding: 60px 0 40px 0;
   color: #c25955;
 }
 
@@ -100,12 +109,14 @@ form {
   margin: 0 auto;
   padding: 20px 0;
 }
-#error_explanation {
+#error_explanation,
+#error_explanation h2 {
   font-size: .9em;
   text-align: center;
   padding: 10px 0;
 }
 #district-errors,
+#reviews-errors,
 #error_explanation h3 {
   font-size: .6em;
   color: red;
@@ -140,6 +151,7 @@ h2.new-district {
 #new_user,
 #edit_user,
 #new_district,
+#new_review,
 .edit_review,
 .edit_district  {
   text-align: left;
@@ -203,11 +215,7 @@ input[type="submit"] {
 .index {
   padding: 10px;
 }
-// img.district-pic {
-//   padding-bottom: 17px;
-//   margin: 0 auto;
-//   border-radius: 35px;
-// }
+
 #search-form {
   display: flex;
   float: right;
@@ -258,7 +266,22 @@ input[type="submit"] {
     font-size: 1.4em;
     padding: 15px;
   }
+}
 
+a {
+  color: #6e2e3e;
+  padding-bottom: 10px;
+  &:hover {
+    opacity: .75;
+  }
+}
+.new-path {
+  color: #6e2e3e;
+  padding-bottom: 10px;
+  &:hover {
+    border-bottom: 2px solid #ccc;
+    opacity: .75;
+  }
 }
 
 .show {
@@ -296,20 +319,12 @@ input[type="submit"] {
     text-align: right;
     margin-top: 7px
   }
-  // .votes {
-  //   text-align: center;
-  // }
   button[type="button"] {
     border: none;
   }
   .buttons {
     margin-top: 7px;
   }
-}
-
-.footer {
-  font-size: 1.4em;
-  padding: 15px 3px;
 }
 
 .profile {
@@ -328,13 +343,12 @@ input[type="submit"] {
   font-size: 20px;
   color: #c25955;
 }
-.new-path {
-  color: #6e2e3e;
-  padding-bottom: 10px;
-  &:hover {
-    border-bottom: 2px solid #ccc;
-  }
+
+.footer {
+  font-size: 1.4em;
+  padding: 15px 3px 30px 0;
 }
+
 // .show-search {
 //   float: right;
 // }
