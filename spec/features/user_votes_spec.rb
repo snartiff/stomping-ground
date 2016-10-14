@@ -39,4 +39,16 @@ feature 'votes on reviews' do
     expect(page).to have_content(district.name)
     expect(page).to have_content(review.body)
   end
+
+  scenario 'unathenticated user cannot vote for reviews' do
+    up_vote = Vote.create(vote: true, user_id: user.id, review_id: review.id)
+
+    visit root_path
+    click_link district.name
+
+    expect(page).to have_content("1 Upvotes")
+    expect(page).to_not have_link("Vote Up")
+    expect(page).to have_content(district.name)
+    expect(page).to have_content(review.body)
+  end
 end

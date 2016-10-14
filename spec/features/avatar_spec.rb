@@ -8,13 +8,31 @@ feature "profile picture" do
     fill_in 'Last Name', with: 'Test'
     fill_in 'Username', with: 'JTest'
     fill_in 'Email', with: 'jtest@test.com'
-    fill_in 'Email', with: 'jtest@test.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password Confirmation', with: 'password'
     attach_file :user_avatar, "#{Rails.root}/spec/support/images/dog_test.png"
     click_button 'Sign Up'
 
     expect(page).to have_content("You\'re in!")
+    expect(page).to have_css("img[src*='dog_test.png']")
+  end
+
+  scenario "current user updates a profile picture" do
+    visit root_path
+    click_link "Sign Up"
+    fill_in 'First Name', with: 'John'
+    fill_in 'Last Name', with: 'Test'
+    fill_in 'Username', with: 'JTest'
+    fill_in 'Email', with: 'jtest@test.com'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password Confirmation', with: 'password'
+    click_button 'Sign Up'
+    click_link "My Account"
+    click_link "Edit Profile"
+    fill_in :user_current_password, with: 'password'
+    attach_file :user_avatar, "#{Rails.root}/spec/support/images/dog_test.png"
+    click_button 'Update'
+
     expect(page).to have_css("img[src*='dog_test.png']")
   end
 end

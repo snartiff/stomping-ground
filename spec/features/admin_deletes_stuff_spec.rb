@@ -43,4 +43,11 @@ feature 'admin deletes anything' do
     expect(page).to have_content(districts.first.name)
     expect(page).to have_button("Delete")
   end
+
+  scenario 'a non-admin cannot delete reviews' do
+    visit root_path
+
+    expect(page).to have_content(districts.first.name)
+    expect(page).to_not have_button("Delete")
+  end
 end

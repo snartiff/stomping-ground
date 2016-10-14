@@ -1,13 +1,13 @@
-
-  <div class="index">
-    <%= link_to "Add New District", new_district_path, class: "new-path" %>
+<div class="index">
+  <%= link_to "Add New District", new_district_path, class: "new-path" %>
     <div class="search">
       <%= form_tag(districts_path, :method => "get", id: "search-form") do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search" %>
       <%= submit_tag "Search", :name => nil %>
       <% end %>
     </div>
-  </div>
+</div>
+
 <div class="district content">
 
     <h1 class="boston">BOSTON NEIGHBORHOODS</h1>

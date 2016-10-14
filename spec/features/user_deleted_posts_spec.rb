@@ -46,4 +46,28 @@ feature 'Authenticated user removes reviews' do
     expect(page).to_not have_content("Hello")
     expect(page).to have_content("District deleted")
   end
+
+  scenario 'unauthenticated user cannot delete a district successfully' do
+    user = FactoryGirl.create(:user)
+
+    visit root_path
+
+    expect(page).to_not have_content("Delete")
+  end
+
+  scenario 'user deletes own district successfully' do
+    user = FactoryGirl.create(:user)
+    district = FactoryGirl.create(:district)
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Log in'
+
+    click_link district.name
+
+    expect(page).to_not have_content("Delete")
+    expect(page).to have_content(district.name)
+  end
 end
