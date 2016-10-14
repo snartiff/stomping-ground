@@ -1,7 +1,7 @@
-<h2 class="review-edit">EDIT</h2>
-
 <%= form_for [@district, @review] do |f| %>
 
+  <h2 class="review-edit">EDIT</h2>
+  
   <% if @review.errors.any? %>
     <div id="review-errors">
       <h3><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h3>

@@ -1,10 +1,9 @@
 <div class="new-district">
-<h1 class="new-dis">NEW DISTRICT FORM</h1>
-
 
 <%= form_for(@district) do |f| %>
 
 <div class="district-form">
+  <h1 class="new-dis">NEW DISTRICT FORM</h1>
   <% if @district.errors.any? %>
     <div id="district-errors">
       <h3><%= pluralize(@district.errors.count, "error") %> prohibited this district from being saved:</h3>
