@@ -14,7 +14,6 @@
           <% end %>
 
           <li class="signed-in">Signed in as <span class="username"><%= current_user[:username] %></span></li>
-          <li><%= link_to 'My Account', user_path(current_user) %></li>
           <li>
             <% if current_user.avatar? %>
               <%=  image_tag(current_user.avatar.url, class: "avatar") %>
@@ -22,6 +21,9 @@
               <%= image_tag("http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-ponsy-deer.png", class: "avatar") %>
             <% end %>
           </li>
+
+          <li><%= link_to 'My Account', user_path(current_user) %></li>
+
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to 'Sign In', new_user_session_path %></li>

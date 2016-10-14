@@ -50,7 +50,7 @@ a.back-link {
   width: 100%;
   h1.header {
     font-family: "Cabin Sketch", sans-serif;
-    font-size: 3.6rem;
+    font-size: 3.2rem;
   }
   .logo {
     display: flex;
@@ -69,18 +69,31 @@ a.back-link {
     a:hover {
       border: none;
     }
+    .links {
+      width: 40%;
+    }
     li {
-      padding: 0 15px;
+
       color: #421b25;
+    }
+    li a {
+      font-size: .7em;
+      padding: 0 7px;
     }
     li.signed-in {
       text-transform: lowercase;
       font-variant: small-caps;
-      font-size: 1.4em;
+      font-size: 1.2em;
+      margin-right: 7px;
     }
     span.username {
       color: #d3c0c5;
     }
+  }
+  .avatar {
+    height: 40px;
+
+    border: 2px solid black;
   }
 }
 .content {
@@ -134,12 +147,6 @@ em {
 .bottom-link {
   padding-top: 7px;
 }
-.avatar {
-  height: 40px;
-  margin-left: -25px;
-  border: 2px solid black;
-}
-
 h2.new-district {
   font-size: 1.2em;
   padding: 20px 0;
@@ -295,6 +302,7 @@ a {
     border-radius: 35px;
   }
   li.review {
+    width: 75%;
     padding: 20px 0;
     border-bottom: 1px solid #ccc;
   }
@@ -312,7 +320,8 @@ a {
       font-size: .8em;
     }
     span.reviewer {
-
+      color: #6E2E3E;
+      font-size: .9em;
     }
   }
   .options {
@@ -358,25 +367,25 @@ a {
   .container {
     padding-top: 85px;
   }
-    #navbar {
-      .logo img {
-        padding-top: 5px;
-      }
-      h1.header {
-        padding: 10px 0 0 0;
-        margin: 0px;
-        a {
-          font-size: 2rem;
-        }
-      li a {
-        font-size: .84em;
-      }
-      li.signed-in {
-        font-size: .84em;
-      }
-      span.username {
-        font-size: .84em;
-      }
+  #navbar {
+    .logo img {
+      padding-top: 5px;
     }
+    h1.header {
+      padding: 10px 0 0 0;
+      margin: 0px;
+      a {
+        font-size: 2rem;
+      }
+    li a {
+      font-size: .75em;
+    }
+    li.signed-in {
+      font-size: .75em;
+    }
+    span.username {
+      font-size: .75em;
+    }
+  }
   }
 }
