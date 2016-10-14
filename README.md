@@ -26,7 +26,7 @@ Sean Nartiff
 
 #Ruby version
 
-Ruby version 2.2.3
+Ruby version 2.3.1
 
 
 #Configuration
