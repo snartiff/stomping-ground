@@ -12,7 +12,7 @@ feature 'votes on reviews' do
     visit root_path
     click_link district.name
 
-    expect(page).to have_content("1 Upvotes")
+    expect(page).to_not have_button("1 upvotes")
     expect(page).to_not have_link("Vote Up")
     expect(page).to have_content(district.name)
     expect(page).to have_content(review.body)
@@ -23,7 +23,7 @@ feature 'votes on reviews' do
     visit root_path
     click_link district.name
 
-    expect(page).to have_link("Vote Up")
+    expect(page).to have_button("upvotes")
     expect(page).to have_content(district.name)
     expect(page).to have_content(review.body)
   end
@@ -35,8 +35,7 @@ feature 'votes on reviews' do
     visit root_path
     click_link district.name
 
-    expect(page).to have_content("1 Upvotes")
-    expect(page).to have_link("Vote Up")
+    expect(page).to have_button("downvotes")
     expect(page).to have_content(district.name)
     expect(page).to have_content(review.body)
   end
@@ -47,8 +46,7 @@ feature 'votes on reviews' do
     visit root_path
     click_link district.name
 
-    expect(page).to have_content("1 Upvotes")
-    expect(page).to_not have_link("Vote Up")
+    expect(page).to_not have_button("upvotes")
     expect(page).to have_content(district.name)
     expect(page).to have_content(review.body)
   end

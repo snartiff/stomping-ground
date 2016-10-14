@@ -34,35 +34,45 @@
         <% unless r.user.nil? %>
         <span class="reviewer">-<%= r.user.username %></span></p>
           <% end %>
+
         <% up_votes = r.votes.where(:vote => true) %>
         <% down_votes = r.votes.where(:vote => false) %>
 
-        <div id="upvote-count">
-          <%= up_votes.count %> Upvotes
+        <div class="votes">
+          <% if current_user %>
+            <button type="button">
+              <%= link_to '<i class="material-icons">thumb_up</i>'.html_safe, vote_up_path(r), :remote => true, id: "vote_up" %>
+              <div id="upvote-count">
+                <%= up_votes.count %> upvotes
+              </div>
+            </button>
+
+
+            <button type="button">
+               <%= link_to '<i class="material-icons">thumb_down</i>'.html_safe, vote_down_path(r), :remote => true, id: "vote_down" %>
+               <div id="downvote-count">
+                 <%= down_votes.count %> downvotes
+               </div>
+             </button><br />
+
+          <% end %>
         </div>
 
-        <div id="downvote-count">
-          <%= down_votes.count %> Downvotes
+        <div class="options">
+          <% if current_user %>
+            <% if current_user.id == r.user_id %>
+            <button type="button"><%= link_to 'Edit Review', edit_district_review_path(@district, r), class: "button", id: "edit-district-review-button" %></button>
+            <% end %>
+            <% if current_user.id == r.user_id || current_user.admin? %>
+              <button type="button"><%= link_to 'Delete Review', district_review_path(@district, r), method: :delete %></button>
+            <% end %>
+          <% end %>
         </div>
-
-        <% if current_user %>
-          <button type="button"><%= link_to "Vote Up", vote_up_path(r), :remote => true, id: "vote_up" %></button>
-          <button type="button"><%= link_to "Vote Down", vote_down_path(r), :remote => true, id: "vote_down" %></button><br />
-        <% end %>
-
-        <% if current_user %>
-          <% if current_user.id == r.user_id %>
-          <button type="button"><%= link_to 'Edit Review', edit_district_review_path(@district, r), class: "button", id: "edit-district-review-button" %></button>
-          <% end %>
-          <% if current_user.id == r.user_id || current_user.admin? %>
-            <button type="button"><%= link_to 'Delete Review', district_review_path(@district, r), method: :delete %></button>
-          <% end %>
-        <% end %>
       </li>
     <% end %>
   </ul>
 </div>
 
 <div class="footer">
-  <%= link_to 'Back to Districts', districts_path %>
+  <%= link_to 'Back to Districts', districts_path, class: "back-link" %>
 </div>

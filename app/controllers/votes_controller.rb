@@ -13,6 +13,8 @@ class VotesController < ApplicationController
     else
       @review.votes.create(:user_id => current_user.id, :review_id => @review.id, :vote => true)
     end
+
+    redirect_to district_path(@review.district)
   end
 
   def vote_down

@@ -6,7 +6,7 @@ const District = props => {
   return (
     <li key={props.id} className="neighborhood">
       <a href={path}><img src={image} className="district-pic"/></a><br />
-      <a href={path}>{props.name}</a>
+      <a href={path} className="title">{props.name}</a>
     </li>
   );
 }

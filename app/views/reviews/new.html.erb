@@ -1,6 +1,6 @@
+<%= form_for [@district, @review] do |f| %>
 <h2 class="review">WRITE A NEW REVIEW</h2>
 
-<%= form_for [@district, @review] do |f| %>
   <% if @review.errors.any? %>
     <div id="reviews-errors">
       <h3><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h3>
@@ -33,4 +33,4 @@
 
 <% end %>
 
-<%= link_to 'Back', districts_path(@district) %>
+<%= link_to 'Back', districts_path(@district), class: "back-link" %>
